@@ -11,14 +11,33 @@ class MainTabController: UITabBarController {
 
     //MARK: - Properties
     
+    var floatingActionButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.tintColor = .white
+        btn.backgroundColor = .twitterBlue
+        btn.setImage(UIImage(named: "new_tweet"), for: .normal)
     
+        btn.width(56)
+        btn.height(56)
+        btn.layer.cornerRadius = 56/2
+        
+        return btn
+    }()
     
-    //MARK: - Life Cycle
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTabs()
+        
+        configureUI()
+    }
+    
+    //MARK: - Selector
+    
+    @objc private func onFloatingBtnPressed(sender: UIButton) {
+        print("123")
     }
 
     //MARK: - Helper
@@ -37,5 +56,24 @@ class MainTabController: UITabBarController {
         conversations.tabBarItem.image = UIImage(named: "ic_mail_outline_white_2x-1")
         
         viewControllers = [feed, explore, notifications, conversations]
+    }
+    
+    private func configureUI() {
+        view.addSubview(floatingActionButton)
+        
+        floatingActionButton.addTarget(
+            self,
+            action: #selector(onFloatingBtnPressed),
+            for: .touchUpInside
+        )
+        
+        floatingActionButton.padding(
+            to: view,
+            withInsets: UIEdgeInsets.only(
+                right: 16,
+                bottom: 64
+            ),
+            withSafeAreaProtected: true
+        )
     }
 }
