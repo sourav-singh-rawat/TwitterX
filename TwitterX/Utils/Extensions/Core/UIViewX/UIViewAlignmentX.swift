@@ -7,8 +7,7 @@
 
 import UIKit
 
-extension UIView {
-    
+extension UIView { 
     func alignment(
         to view: UIView,
         alignment: UIAlignment,
@@ -19,9 +18,24 @@ extension UIView {
         switch alignment {
         
         case .topLeft:
+            self.padding(
+                to: view,
+                withInsets: UIEdgeInsets.only(
+                    left: 0,
+                    top: 0
+                ),
+                withSafeAreaProtected: safeAreaProtected
+            )
             break
         
         case .topCenter:
+            self.padding(
+                to: view,
+                withInsets: UIEdgeInsets.only(
+                    top: 0
+                ),
+                withSafeAreaProtected: safeAreaProtected
+            )
             self.centerXAnchor.constraint(
                 equalTo: safeAreaProtected
                 ?view.safeAreaLayoutGuide.centerXAnchor
@@ -35,14 +49,16 @@ extension UIView {
                 withInsets: UIEdgeInsets.only(
                     right: 0,
                     top: 0
-                )
+                ),
+                withSafeAreaProtected: safeAreaProtected
             )
             break
             
         case .centerLeft:
             self.padding(
                 to: view,
-                withInsets: UIEdgeInsets.only(left: 0)
+                withInsets: UIEdgeInsets.only(left: 0),
+                withSafeAreaProtected: safeAreaProtected
             )
             self.centerYAnchor.constraint(
                 equalTo: safeAreaProtected
@@ -69,7 +85,8 @@ extension UIView {
         case .centerRight:
             self.padding(
                 to: view,
-                withInsets: UIEdgeInsets.only(right: 0)
+                withInsets: UIEdgeInsets.only(right: 0),
+                withSafeAreaProtected: safeAreaProtected
             )
             self.centerYAnchor.constraint(
                 equalTo: safeAreaProtected
@@ -84,7 +101,8 @@ extension UIView {
                 withInsets: UIEdgeInsets.only(
                     left: 0,
                     bottom: 0
-                )
+                ),
+                withSafeAreaProtected: safeAreaProtected
             )
             break
             
@@ -93,7 +111,8 @@ extension UIView {
                 to: view,
                 withInsets: UIEdgeInsets.only(
                     bottom: 0
-                )
+                ),
+                withSafeAreaProtected: safeAreaProtected
             )
             self.centerXAnchor.constraint(
                 equalTo: safeAreaProtected
@@ -108,7 +127,8 @@ extension UIView {
                 withInsets: UIEdgeInsets.only(
                     right: 0,
                     bottom: 0
-                )
+                ),
+                withSafeAreaProtected: safeAreaProtected
             )
             break
             
