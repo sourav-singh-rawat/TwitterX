@@ -11,7 +11,12 @@
 		3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A522954CD13001E353F /* SceneDelegate.swift */; };
 		3FCC7A5A2954CD14001E353F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCC7A592954CD14001E353F /* Assets.xcassets */; };
 		3FCC7A5D2954CD14001E353F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCC7A5B2954CD14001E353F /* LaunchScreen.storyboard */; };
-		3FCC7A6B2954D0C4001E353F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A6A2954D0C4001E353F /* MainTabViewController.swift */; };
+		3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A6A2954D0C4001E353F /* MainTabController.swift */; };
+		3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A6C29554AB2001E353F /* FeedController.swift */; };
+		3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A6E29554AE9001E353F /* ExploreController.swift */; };
+		3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7029554AF5001E353F /* NotificationsController.swift */; };
+		3FCC7A7329554B0D001E353F /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7229554B0D001E353F /* ConversationsController.swift */; };
+		3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +26,12 @@
 		3FCC7A592954CD14001E353F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCC7A5C2954CD14001E353F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FCC7A5E2954CD14001E353F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FCC7A6A2954D0C4001E353F /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		3FCC7A6A2954D0C4001E353F /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		3FCC7A6C29554AB2001E353F /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		3FCC7A6E29554AE9001E353F /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
+		3FCC7A7029554AF5001E353F /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		3FCC7A7229554B0D001E353F /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
+		3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 		3FCC7A652954CDD9001E353F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A7429554FA4001E353F /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -93,7 +104,11 @@
 		3FCC7A672954CDE2001E353F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3FCC7A6A2954D0C4001E353F /* MainTabViewController.swift */,
+				3FCC7A6A2954D0C4001E353F /* MainTabController.swift */,
+				3FCC7A6C29554AB2001E353F /* FeedController.swift */,
+				3FCC7A6E29554AE9001E353F /* ExploreController.swift */,
+				3FCC7A7029554AF5001E353F /* NotificationsController.swift */,
+				3FCC7A7229554B0D001E353F /* ConversationsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,6 +125,30 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3FCC7A7429554FA4001E353F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A7629554FD0001E353F /* Custom */,
+				3FCC7A7529554FB4001E353F /* Core */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3FCC7A7529554FB4001E353F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3FCC7A7629554FD0001E353F /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +221,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */,
+				3FCC7A7329554B0D001E353F /* ConversationsController.swift in Sources */,
 				3FCC7A512954CD13001E353F /* AppDelegate.swift in Sources */,
+				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
-				3FCC7A6B2954D0C4001E353F /* MainTabViewController.swift in Sources */,
+				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,
+				3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */,
+				3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
