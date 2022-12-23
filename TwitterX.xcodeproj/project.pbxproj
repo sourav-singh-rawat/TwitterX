@@ -19,6 +19,10 @@
 		3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */; };
 		3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A792955A128001E353F /* UIViewX.swift */; };
 		3FCC7A7C2955A692001E353F /* UIColorX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7B2955A692001E353F /* UIColorX.swift */; };
+		3FCC7A822955C09F001E353F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A812955C09F001E353F /* LoginController.swift */; };
+		3FCC7A852955CDA1001E353F /* UIViewPaddingX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A842955CDA1001E353F /* UIViewPaddingX.swift */; };
+		3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A862955CDAF001E353F /* UIViewAlignmentX.swift */; };
+		3FCC7A892955D065001E353F /* UIViewSizeX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A882955D065001E353F /* UIViewSizeX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
 		3FCC7A792955A128001E353F /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		3FCC7A7B2955A692001E353F /* UIColorX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorX.swift; sourceTree = "<group>"; };
+		3FCC7A812955C09F001E353F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		3FCC7A842955CDA1001E353F /* UIViewPaddingX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPaddingX.swift; sourceTree = "<group>"; };
+		3FCC7A862955CDAF001E353F /* UIViewAlignmentX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAlignmentX.swift; sourceTree = "<group>"; };
+		3FCC7A882955D065001E353F /* UIViewSizeX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSizeX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 		3FCC7A672954CDE2001E353F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A7E2955C062001E353F /* Authentication */,
 				3FCC7A6A2954D0C4001E353F /* MainTabController.swift */,
 				3FCC7A6C29554AB2001E353F /* FeedController.swift */,
 				3FCC7A6E29554AE9001E353F /* ExploreController.swift */,
@@ -144,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */,
-				3FCC7A792955A128001E353F /* UIViewX.swift */,
+				3FCC7A832955CD83001E353F /* UIViewX */,
 				3FCC7A7B2955A692001E353F /* UIColorX.swift */,
 			);
 			path = Core;
@@ -155,6 +164,25 @@
 			children = (
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		3FCC7A7E2955C062001E353F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A812955C09F001E353F /* LoginController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3FCC7A832955CD83001E353F /* UIViewX */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A792955A128001E353F /* UIViewX.swift */,
+				3FCC7A842955CDA1001E353F /* UIViewPaddingX.swift */,
+				3FCC7A862955CDAF001E353F /* UIViewAlignmentX.swift */,
+				3FCC7A882955D065001E353F /* UIViewSizeX.swift */,
+			);
+			path = UIViewX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,14 +255,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FCC7A822955C09F001E353F /* LoginController.swift in Sources */,
 				3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */,
+				3FCC7A892955D065001E353F /* UIViewSizeX.swift in Sources */,
 				3FCC7A7329554B0D001E353F /* ConversationsController.swift in Sources */,
+				3FCC7A852955CDA1001E353F /* UIViewPaddingX.swift in Sources */,
 				3FCC7A512954CD13001E353F /* AppDelegate.swift in Sources */,
 				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
 				3FCC7A7C2955A692001E353F /* UIColorX.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,
 				3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */,
+				3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */,
 				3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */,
 				3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */,
 			);
