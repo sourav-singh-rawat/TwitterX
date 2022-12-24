@@ -67,8 +67,8 @@ class MainTabController: UITabBarController {
             for: .touchUpInside
         )
         
-        floatingActionButton.padding(
-            to: view,
+        floatingActionButton.position(
+            in: view,
             withInsets: UIEdgeInsets.only(
                 right: 16,
                 bottom: 64

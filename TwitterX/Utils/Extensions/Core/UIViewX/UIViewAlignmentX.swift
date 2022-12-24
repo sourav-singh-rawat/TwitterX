@@ -18,8 +18,8 @@ extension UIView {
         switch alignment {
         
         case .topLeft:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     left: 0,
                     top: 0
@@ -29,8 +29,8 @@ extension UIView {
             break
         
         case .topCenter:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     top: 0
                 ),
@@ -44,8 +44,8 @@ extension UIView {
             break
         
         case .topRight:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     right: 0,
                     top: 0
@@ -55,8 +55,8 @@ extension UIView {
             break
             
         case .centerLeft:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(left: 0),
                 withSafeAreaProtected: safeAreaProtected
             )
@@ -83,8 +83,8 @@ extension UIView {
             break
             
         case .centerRight:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(right: 0),
                 withSafeAreaProtected: safeAreaProtected
             )
@@ -96,8 +96,8 @@ extension UIView {
             break
             
         case .bottomLeft:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     left: 0,
                     bottom: 0
@@ -107,8 +107,8 @@ extension UIView {
             break
             
         case .bottomCenter:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     bottom: 0
                 ),
@@ -122,8 +122,8 @@ extension UIView {
             break
             
         case .bottomRight:
-            self.padding(
-                to: view,
+            self.position(
+                in: view,
                 withInsets: UIEdgeInsets.only(
                     right: 0,
                     bottom: 0
