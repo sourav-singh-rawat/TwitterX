@@ -50,11 +50,18 @@ class LoginController: TXViewController {
             return view
         }()
         
+        lazy var loginButton: TXActionButton = {
+           let button = TXActionButton(title: "Login")
+            
+            return button
+        }()
+        
         let stackView = TXStackView()
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.addArrangedSubview(emailContainerView)
         stackView.addArrangedSubview(passwordContainerView)
+        stackView.addArrangedSubview(loginButton)
         
         return stackView
     }()

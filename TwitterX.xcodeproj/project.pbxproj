@@ -33,6 +33,7 @@
 		3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA2295854D9001E353F /* TXStackView.swift */; };
 		3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA429585607001E353F /* TXNavigationController.swift */; };
 		3FCC7AA7295861C3001E353F /* TXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA6295861C3001E353F /* TXButton.swift */; };
+		3FEE8F3B2958B30400317CF6 /* TXActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		3FCC7AA2295854D9001E353F /* TXStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXStackView.swift; sourceTree = "<group>"; };
 		3FCC7AA429585607001E353F /* TXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXNavigationController.swift; sourceTree = "<group>"; };
 		3FCC7AA6295861C3001E353F /* TXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXButton.swift; sourceTree = "<group>"; };
+		3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 		3FCC7A8C2957ABB3001E353F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3FEE8F392958B2D600317CF6 /* TXButton */,
 				3FCC7A8D2957ABDE001E353F /* TXTextInputField.swift */,
 			);
 			path = Core;
@@ -261,6 +264,14 @@
 			children = (
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		3FEE8F392958B2D600317CF6 /* TXButton */ = {
+			isa = PBXGroup;
+			children = (
+				3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */,
+			);
+			path = TXButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */,
 				3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */,
 				3FCC7A8B2957A53D001E353F /* UIViewMarginX.swift in Sources */,
+				3FEE8F3B2958B30400317CF6 /* TXActionButton.swift in Sources */,
 				3FCC7A7829554FE8001E353F /* TXViewControllerX.swift in Sources */,
 				3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */,
 			);
