@@ -51,11 +51,13 @@ class LoginController: TXViewController {
         }()
         
         lazy var loginButton: TXActionButton = {
-           let button = TXActionButton(
-            title: "Login",
-            target: self,
-            onPressed: #selector(onLoginPressed)
-           )
+            let button = TXActionButton(
+                title: "Login",
+                target: self,
+                onPressed: #selector(onLoginPressed)
+            )
+            
+            button.height(50)
             
             return button
         }()
