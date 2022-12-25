@@ -15,7 +15,7 @@ class MainTabController: TXTabBarController {
         let btn = TXButton(type: .system)
         btn.tintColor = .white
         btn.backgroundColor = .twitterBlue
-        btn.setImage(TXImage(named: "new_tweet"), for: .normal)
+        btn.setImage(UIImage(named: "new_tweet"), for: .normal)
     
         btn.width(56)
         btn.height(56)
@@ -44,16 +44,16 @@ class MainTabController: TXTabBarController {
     
     private func configureTabs() {
         let feed = FeedController().wrapWithNavigationController()
-        feed.tabBarItem.image = TXImage(named: "home_unselected")
+        feed.tabBarItem.image = UIImage(named: "home_unselected")
         
         let explore = ExploreController().wrapWithNavigationController()
-        explore.tabBarItem.image = TXImage(named: "search_unselected")
+        explore.tabBarItem.image = UIImage(named: "search_unselected")
         
         let notifications = NotificationsController().wrapWithNavigationController()
-        notifications.tabBarItem.image = TXImage(named: "like_unselected")
+        notifications.tabBarItem.image = UIImage(named: "like_unselected")
         
         let conversations = ConversationsController().wrapWithNavigationController()
-        conversations.tabBarItem.image = TXImage(named: "ic_mail_outline_white_2x-1")
+        conversations.tabBarItem.image = UIImage(named: "ic_mail_outline_white_2x-1")
         
         viewControllers = [feed, explore, notifications, conversations]
     }

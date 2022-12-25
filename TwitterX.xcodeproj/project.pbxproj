@@ -32,6 +32,7 @@
 		3FCC7A9C295840A0001E353F /* TXTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9B295840A0001E353F /* TXTextField.swift */; };
 		3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA2295854D9001E353F /* TXStackView.swift */; };
 		3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA429585607001E353F /* TXNavigationController.swift */; };
+		3FCC7AA7295861C3001E353F /* TXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA6295861C3001E353F /* TXButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		3FCC7A9B295840A0001E353F /* TXTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTextField.swift; sourceTree = "<group>"; };
 		3FCC7AA2295854D9001E353F /* TXStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXStackView.swift; sourceTree = "<group>"; };
 		3FCC7AA429585607001E353F /* TXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXNavigationController.swift; sourceTree = "<group>"; };
+		3FCC7AA6295861C3001E353F /* TXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				3FCC7A502954CD13001E353F /* AppDelegate.swift */,
 				3FCC7A522954CD13001E353F /* SceneDelegate.swift */,
 				3FCC7A9229583F81001E353F /* Files */,
+				3FCC7A5E2954CD14001E353F /* Info.plist */,
 			);
 			path = TwitterX;
 			sourceTree = "<group>";
@@ -117,6 +120,7 @@
 		3FCC7A652954CDD9001E353F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A8F29583EDB001E353F /* Custom Classes */,
 				3FCC7A7429554FA4001E353F /* Extensions */,
 			);
 			path = Utils;
@@ -238,6 +242,7 @@
 				3FCC7A9929584070001E353F /* TXImageView.swift */,
 				3FCC7A9B295840A0001E353F /* TXTextField.swift */,
 				3FCC7AA2295854D9001E353F /* TXStackView.swift */,
+				3FCC7AA6295861C3001E353F /* TXButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,10 +250,8 @@
 		3FCC7A9229583F81001E353F /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				3FCC7A8F29583EDB001E353F /* Custom Classes */,
 				3FCC7A592954CD14001E353F /* Assets.xcassets */,
 				3FCC7A5B2954CD14001E353F /* LaunchScreen.storyboard */,
-				3FCC7A5E2954CD14001E353F /* Info.plist */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,
+				3FCC7AA7295861C3001E353F /* TXButton.swift in Sources */,
 				3FCC7A9829584025001E353F /* TXTabBarController.swift in Sources */,
 				3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */,
 				3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */,
