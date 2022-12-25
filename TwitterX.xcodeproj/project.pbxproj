@@ -173,6 +173,7 @@
 		3FCC7A7529554FB4001E353F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A7729554FE8001E353F /* TXViewControllerX.swift */,
 				3FCC7A832955CD83001E353F /* UIViewX */,
 				3FCC7A7B2955A692001E353F /* UIColorX.swift */,
 			);
@@ -182,7 +183,6 @@
 		3FCC7A7629554FD0001E353F /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				3FCC7A7729554FE8001E353F /* TXViewControllerX.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";

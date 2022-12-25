@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: TXViewController {
     
     //MARK: - Properties
     
-    let logoImageView: UIImageView = {
-        let imgView = UIImageView()
+    private let logoImageView: TXImageView = {
+        let imgView = TXImageView()
         imgView.image = UIImage(named: "TwitterLogo")
         imgView.clipsToBounds = true
         
@@ -20,6 +20,43 @@ class LoginController: UIViewController {
         imgView.height(150)
         
         return imgView
+    }()
+    
+    private lazy var loginContainerView: TXStackView = {
+        lazy var emailContainerView: TXTextInputField = {
+            let textField = TXTextField(placeholder: "Email")
+            
+            let view = TXTextInputField(
+                withImage: UIImage(named: "mail"),
+                withTextField: textField
+            )
+
+            view.height(50)
+            
+            return view
+        }()
+        
+        lazy var passwordContainerView: TXTextInputField = {
+            let textField = TXTextField(placeholder: "Password")
+            textField.isSecureTextEntry = true
+            
+            let view = TXTextInputField(
+                withImage: UIImage(named: "ic_lock_outline_white_2x"),
+                withTextField: textField
+            )
+            
+            view.height(50)
+            
+            return view
+        }()
+        
+        let stackView = TXStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.addArrangedSubview(emailContainerView)
+        stackView.addArrangedSubview(passwordContainerView)
+        
+        return stackView
     }()
     
     //MARK: - Lifecycle
@@ -49,6 +86,21 @@ class LoginController: UIViewController {
             to: view,
             alignment: .topCenter,
             withSafeAreaPortected: true
+        )
+        
+        view.addSubview(loginContainerView)
+        loginContainerView.position(
+            in: view,
+            withInsets: TXEdgeInsets.symmetric(
+                horizontal: 16
+            ),
+            withSafeAreaProtected: true
+        )
+        loginContainerView.margin(
+            to: logoImageView,
+            withInsets: TXEdgeInsets.only(
+                bottom: 0
+            )
         )
     }
     
