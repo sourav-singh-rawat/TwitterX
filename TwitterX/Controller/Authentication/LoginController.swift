@@ -52,7 +52,7 @@ class LoginController: TXViewController {
         
         let stackView = TXStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 20
         stackView.addArrangedSubview(emailContainerView)
         stackView.addArrangedSubview(passwordContainerView)
         
@@ -92,7 +92,7 @@ class LoginController: TXViewController {
         loginContainerView.position(
             in: view,
             withInsets: TXEdgeInsets.symmetric(
-                horizontal: 16
+                horizontal: 32
             ),
             withSafeAreaProtected: true
         )
