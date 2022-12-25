@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationsController: UIViewController {
+class NotificationsController: TXViewController {
     
     //MARK: - Properties
     

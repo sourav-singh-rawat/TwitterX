@@ -13,14 +13,14 @@ extension UIView {
     }
 }
 
-struct UIEdgeInsets {
+struct TXEdgeInsets {
     let left: CGFloat
     let right: CGFloat
     let bottom: CGFloat
     let top: CGFloat
     
-    static func symmetric(horizontal: CGFloat? = nil,vertical: CGFloat? = nil) -> UIEdgeInsets {
-        return UIEdgeInsets(
+    static func symmetric(horizontal: CGFloat? = nil,vertical: CGFloat? = nil) -> TXEdgeInsets {
+        return TXEdgeInsets(
             left: horizontal ?? -1,
             right: horizontal ?? -1,
             bottom: vertical ?? -1,
@@ -28,8 +28,8 @@ struct UIEdgeInsets {
         )
     }
     
-    static func all(_ value: CGFloat) -> UIEdgeInsets{
-        return UIEdgeInsets(
+    static func all(_ value: CGFloat) -> TXEdgeInsets{
+        return TXEdgeInsets(
             left: value,
             right: value,
             bottom: value,
@@ -42,8 +42,8 @@ struct UIEdgeInsets {
         right: CGFloat? = nil,
         bottom: CGFloat? = nil,
         top: CGFloat? = nil
-    ) -> UIEdgeInsets {
-        return UIEdgeInsets(
+    ) -> TXEdgeInsets {
+        return TXEdgeInsets(
             left: left ?? -1,
             right: right ?? -1,
             bottom: bottom ?? -1,

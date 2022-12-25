@@ -16,7 +16,7 @@
 		3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A6E29554AE9001E353F /* ExploreController.swift */; };
 		3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7029554AF5001E353F /* NotificationsController.swift */; };
 		3FCC7A7329554B0D001E353F /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7229554B0D001E353F /* ConversationsController.swift */; };
-		3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */; };
+		3FCC7A7829554FE8001E353F /* TXViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7729554FE8001E353F /* TXViewControllerX.swift */; };
 		3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A792955A128001E353F /* UIViewX.swift */; };
 		3FCC7A7C2955A692001E353F /* UIColorX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A7B2955A692001E353F /* UIColorX.swift */; };
 		3FCC7A822955C09F001E353F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A812955C09F001E353F /* LoginController.swift */; };
@@ -24,6 +24,14 @@
 		3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A862955CDAF001E353F /* UIViewAlignmentX.swift */; };
 		3FCC7A892955D065001E353F /* UIViewSizeX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A882955D065001E353F /* UIViewSizeX.swift */; };
 		3FCC7A8B2957A53D001E353F /* UIViewMarginX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A8A2957A53D001E353F /* UIViewMarginX.swift */; };
+		3FCC7A8E2957ABDE001E353F /* TXTextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A8D2957ABDE001E353F /* TXTextInputField.swift */; };
+		3FCC7A9429583FB9001E353F /* TXView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9329583FB9001E353F /* TXView.swift */; };
+		3FCC7A9629583FE8001E353F /* TXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9529583FE8001E353F /* TXViewController.swift */; };
+		3FCC7A9829584025001E353F /* TXTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9729584025001E353F /* TXTabBarController.swift */; };
+		3FCC7A9A29584070001E353F /* TXImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9929584070001E353F /* TXImageView.swift */; };
+		3FCC7A9C295840A0001E353F /* TXTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7A9B295840A0001E353F /* TXTextField.swift */; };
+		3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA2295854D9001E353F /* TXStackView.swift */; };
+		3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA429585607001E353F /* TXNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +46,7 @@
 		3FCC7A6E29554AE9001E353F /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		3FCC7A7029554AF5001E353F /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		3FCC7A7229554B0D001E353F /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
-		3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
+		3FCC7A7729554FE8001E353F /* TXViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXViewControllerX.swift; sourceTree = "<group>"; };
 		3FCC7A792955A128001E353F /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		3FCC7A7B2955A692001E353F /* UIColorX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorX.swift; sourceTree = "<group>"; };
 		3FCC7A812955C09F001E353F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -46,6 +54,14 @@
 		3FCC7A862955CDAF001E353F /* UIViewAlignmentX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAlignmentX.swift; sourceTree = "<group>"; };
 		3FCC7A882955D065001E353F /* UIViewSizeX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSizeX.swift; sourceTree = "<group>"; };
 		3FCC7A8A2957A53D001E353F /* UIViewMarginX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewMarginX.swift; sourceTree = "<group>"; };
+		3FCC7A8D2957ABDE001E353F /* TXTextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTextInputField.swift; sourceTree = "<group>"; };
+		3FCC7A9329583FB9001E353F /* TXView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXView.swift; sourceTree = "<group>"; };
+		3FCC7A9529583FE8001E353F /* TXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXViewController.swift; sourceTree = "<group>"; };
+		3FCC7A9729584025001E353F /* TXTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTabBarController.swift; sourceTree = "<group>"; };
+		3FCC7A9929584070001E353F /* TXImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImageView.swift; sourceTree = "<group>"; };
+		3FCC7A9B295840A0001E353F /* TXTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTextField.swift; sourceTree = "<group>"; };
+		3FCC7AA2295854D9001E353F /* TXStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXStackView.swift; sourceTree = "<group>"; };
+		3FCC7AA429585607001E353F /* TXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +102,7 @@
 				3FCC7A652954CDD9001E353F /* Utils */,
 				3FCC7A502954CD13001E353F /* AppDelegate.swift */,
 				3FCC7A522954CD13001E353F /* SceneDelegate.swift */,
-				3FCC7A592954CD14001E353F /* Assets.xcassets */,
-				3FCC7A5B2954CD14001E353F /* LaunchScreen.storyboard */,
-				3FCC7A5E2954CD14001E353F /* Info.plist */,
+				3FCC7A9229583F81001E353F /* Files */,
 			);
 			path = TwitterX;
 			sourceTree = "<group>";
@@ -138,6 +152,7 @@
 		3FCC7A692954CDF3001E353F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A8C2957ABB3001E353F /* Core */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,7 +169,6 @@
 		3FCC7A7529554FB4001E353F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3FCC7A7729554FE8001E353F /* UIViewControllerX.swift */,
 				3FCC7A832955CD83001E353F /* UIViewX */,
 				3FCC7A7B2955A692001E353F /* UIColorX.swift */,
 			);
@@ -164,6 +178,7 @@
 		3FCC7A7629554FD0001E353F /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				3FCC7A7729554FE8001E353F /* TXViewControllerX.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -186,6 +201,63 @@
 				3FCC7A882955D065001E353F /* UIViewSizeX.swift */,
 			);
 			path = UIViewX;
+			sourceTree = "<group>";
+		};
+		3FCC7A8C2957ABB3001E353F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A8D2957ABDE001E353F /* TXTextInputField.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3FCC7A8F29583EDB001E353F /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A9129583F54001E353F /* View */,
+				3FCC7A9029583F48001E353F /* Controller */,
+				3FCC7A9D2958417F001E353F /* Other */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		3FCC7A9029583F48001E353F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A9529583FE8001E353F /* TXViewController.swift */,
+				3FCC7A9729584025001E353F /* TXTabBarController.swift */,
+				3FCC7AA429585607001E353F /* TXNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3FCC7A9129583F54001E353F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A9329583FB9001E353F /* TXView.swift */,
+				3FCC7A9929584070001E353F /* TXImageView.swift */,
+				3FCC7A9B295840A0001E353F /* TXTextField.swift */,
+				3FCC7AA2295854D9001E353F /* TXStackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3FCC7A9229583F81001E353F /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FCC7A8F29583EDB001E353F /* Custom Classes */,
+				3FCC7A592954CD14001E353F /* Assets.xcassets */,
+				3FCC7A5B2954CD14001E353F /* LaunchScreen.storyboard */,
+				3FCC7A5E2954CD14001E353F /* Info.plist */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		3FCC7A9D2958417F001E353F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,18 +332,26 @@
 			files = (
 				3FCC7A822955C09F001E353F /* LoginController.swift in Sources */,
 				3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */,
+				3FCC7A9629583FE8001E353F /* TXViewController.swift in Sources */,
 				3FCC7A892955D065001E353F /* UIViewSizeX.swift in Sources */,
 				3FCC7A7329554B0D001E353F /* ConversationsController.swift in Sources */,
 				3FCC7A852955CDA1001E353F /* UIViewPositionX.swift in Sources */,
+				3FCC7A9A29584070001E353F /* TXImageView.swift in Sources */,
 				3FCC7A512954CD13001E353F /* AppDelegate.swift in Sources */,
 				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
+				3FCC7A9429583FB9001E353F /* TXView.swift in Sources */,
 				3FCC7A7C2955A692001E353F /* UIColorX.swift in Sources */,
+				3FCC7A9C295840A0001E353F /* TXTextField.swift in Sources */,
+				3FCC7A8E2957ABDE001E353F /* TXTextInputField.swift in Sources */,
+				3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */,
+				3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,
+				3FCC7A9829584025001E353F /* TXTabBarController.swift in Sources */,
 				3FCC7A6D29554AB2001E353F /* FeedController.swift in Sources */,
 				3FCC7A872955CDAF001E353F /* UIViewAlignmentX.swift in Sources */,
 				3FCC7A8B2957A53D001E353F /* UIViewMarginX.swift in Sources */,
-				3FCC7A7829554FE8001E353F /* UIViewControllerX.swift in Sources */,
+				3FCC7A7829554FE8001E353F /* TXViewControllerX.swift in Sources */,
 				3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

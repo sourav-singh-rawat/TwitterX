@@ -11,7 +11,7 @@ extension UIView {
     
     func margin(
         to view: UIView,
-        withInsets insets: UIEdgeInsets,
+        withInsets insets: TXEdgeInsets,
         withSafeAreaProtected safeAreaProtected: Bool = false
     ){
         enableAutoResizing()

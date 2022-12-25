@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedController: UIViewController {
+class FeedController: TXViewController {
     
     //MARK: - Properties
     
@@ -26,7 +26,7 @@ class FeedController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         
-        let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
+        let imageView = TXImageView(image: TXImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
         
         navigationItem.titleView = imageView

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExploreController: UIViewController {
+class ExploreController: TXViewController {
     
     //MARK: - Properties
     

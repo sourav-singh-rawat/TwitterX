@@ -1,5 +1,5 @@
 //
-//  UIViewAlignmentX.swift
+//  UIViewAlignmenUI.swift
 //  TwitterX
 //
 //  Created by Sourav Singh Rawat on 23/12/22.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-extension UIView { 
+extension UIView {
     func alignment(
         to view: UIView,
-        alignment: UIAlignment,
+        alignment: TXAlignment,
         withSafeAreaPortected safeAreaProtected: Bool = false
     ) {
         enableAutoResizing()
@@ -20,7 +20,7 @@ extension UIView {
         case .topLeft:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     left: 0,
                     top: 0
                 ),
@@ -31,7 +31,7 @@ extension UIView {
         case .topCenter:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     top: 0
                 ),
                 withSafeAreaProtected: safeAreaProtected
@@ -46,7 +46,7 @@ extension UIView {
         case .topRight:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     right: 0,
                     top: 0
                 ),
@@ -57,7 +57,7 @@ extension UIView {
         case .centerLeft:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(left: 0),
+                withInsets: TXEdgeInsets.only(left: 0),
                 withSafeAreaProtected: safeAreaProtected
             )
             self.centerYAnchor.constraint(
@@ -85,7 +85,7 @@ extension UIView {
         case .centerRight:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(right: 0),
+                withInsets: TXEdgeInsets.only(right: 0),
                 withSafeAreaProtected: safeAreaProtected
             )
             self.centerYAnchor.constraint(
@@ -98,7 +98,7 @@ extension UIView {
         case .bottomLeft:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     left: 0,
                     bottom: 0
                 ),
@@ -109,7 +109,7 @@ extension UIView {
         case .bottomCenter:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     bottom: 0
                 ),
                 withSafeAreaProtected: safeAreaProtected
@@ -124,7 +124,7 @@ extension UIView {
         case .bottomRight:
             self.position(
                 in: view,
-                withInsets: UIEdgeInsets.only(
+                withInsets: TXEdgeInsets.only(
                     right: 0,
                     bottom: 0
                 ),
@@ -136,7 +136,7 @@ extension UIView {
     }
 }
 
-enum UIAlignment {
+enum TXAlignment {
     case topLeft
     case topCenter
     case topRight
