@@ -11,16 +11,18 @@ class TXActionButton: TXButton {
     
     required init(
         title: String,
+        target: Any,
+        onPressed: Selector,
         height: CGFloat = 50
     ){
         super.init(frame: .zero)
         
-        print(buttonType)
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         setTitleColor(.twitterBlue, for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 5
+        addTarget(target, action: onPressed, for: .touchUpInside)
         
         self.height(height)
     }
