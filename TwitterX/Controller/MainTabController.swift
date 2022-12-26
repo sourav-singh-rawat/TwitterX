@@ -11,8 +11,10 @@ class MainTabController: TXTabBarController {
 
     //MARK: - Properties
     
-    var floatingActionButton: TXButton = {
-        let btn = TXButton(type: .system)
+    lazy var floatingActionButton: TXButton = {
+        let btn = TXButton(
+            onPressed: onFloatingBtnPressed
+        )
         btn.tintColor = .white
         btn.backgroundColor = .twitterBlue
         btn.setImage(UIImage(named: "new_tweet"), for: .normal)
@@ -36,7 +38,7 @@ class MainTabController: TXTabBarController {
     
     //MARK: - Selector
     
-    @objc private func onFloatingBtnPressed(sender: UIButton) {
+    private func onFloatingBtnPressed() {
         print("123")
     }
 
@@ -60,12 +62,6 @@ class MainTabController: TXTabBarController {
     
     private func configureUI() {
         view.addSubview(floatingActionButton)
-        
-        floatingActionButton.addTarget(
-            self,
-            action: #selector(onFloatingBtnPressed),
-            for: .touchUpInside
-        )
         
         floatingActionButton.position(
             in: view,

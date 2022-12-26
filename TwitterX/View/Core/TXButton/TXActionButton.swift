@@ -9,12 +9,12 @@ import UIKit
 
 class TXActionButton: TXButton {
     
-    required init(_ target: Any,
+    required init(
         title: String,
-        onPressed: Selector,
+        onPressed: @escaping OnPressedTXButton,
         height: CGFloat = 50
     ){
-        super.init(frame: .zero)
+        super.init(onPressed: onPressed)
         
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -22,12 +22,15 @@ class TXActionButton: TXButton {
         setTitleColor(.twitterBlue, for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 5
-        addTarget(target, action: onPressed, for: .touchUpInside)
         
         self.height(height)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    required init(onPressed: @escaping OnPressedTXButton) {
+        fatalError("init(onPressed:) has not been implemented")
     }
 }

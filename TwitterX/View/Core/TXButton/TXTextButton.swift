@@ -9,30 +9,32 @@ import UIKit
 
 class TXTextButton: TXButton {
     
-    init(_ target: Any,
+    init(
         title: String,
-        onPressed: Selector
+        onPressed: @escaping OnPressedTXButton
     ){
-        super.init(frame: .zero)
+        super.init(onPressed: onPressed)
         
         setTitle(title, for: .normal)
         //TODO: theme
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        addTarget(target, action: onPressed, for: .touchUpInside)
     }
     
-    init(_ target: Any,
+    init(
         attributedTitle title: NSAttributedString,
-        onPressed: Selector
+        onPressed: @escaping OnPressedTXButton
     ){
-        super.init(frame: .zero)
+        super.init(onPressed: onPressed)
         
         setAttributedTitle(title, for: .normal)
-        addTarget(target, action: onPressed, for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    required init(onPressed: @escaping OnPressedTXButton) {
+        fatalError("init(onPressed:) has not been implemented")
     }
 }

@@ -47,9 +47,9 @@ class LoginController: TXViewController {
         }()
         
         lazy var loginButton: TXActionButton = {
-            let button = TXActionButton(self,
+            let button = TXActionButton(
                 title: "Login",
-                onPressed: #selector(onLoginPressed)
+                onPressed: onLoginPressed
             )
             
             return button
@@ -84,9 +84,9 @@ class LoginController: TXViewController {
             )
         )
         
-       let btn = TXTextButton(self,
+       let btn = TXTextButton(
         attributedTitle: attributedTitle,
-        onPressed: #selector(onSignUpPressed)
+        onPressed: onSignUpPressed
        )
         
         return btn
@@ -108,11 +108,11 @@ class LoginController: TXViewController {
     
     //MARK: - Selectors
     
-    @objc private func onLoginPressed() {
+    private func onLoginPressed() {
         print("login")
     }
     
-    @objc private func onSignUpPressed() {
+    private func onSignUpPressed() {
         print("sign up")
     }
     
