@@ -11,7 +11,8 @@ class TXActionButton: TXButton {
     
     required init(_ target: Any,
         title: String,
-        onPressed: Selector
+        onPressed: Selector,
+        height: CGFloat = 50
     ){
         super.init(frame: .zero)
         
@@ -22,6 +23,8 @@ class TXActionButton: TXButton {
         backgroundColor = .white
         layer.cornerRadius = 5
         addTarget(target, action: onPressed, for: .touchUpInside)
+        
+        self.height(height)
     }
     
     required init?(coder: NSCoder) {

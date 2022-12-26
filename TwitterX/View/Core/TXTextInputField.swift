@@ -21,7 +21,8 @@ class TXTextInputField: TXView {
     
     init(
         withImage image: UIImage? = nil,
-        withTextField textField: TXTextField
+        withTextField textField: TXTextField,
+        height: CGFloat = 50
     ) {
         self.textInputRow = TXTextInputRow(
             withImage: image,
@@ -31,6 +32,8 @@ class TXTextInputField: TXView {
         super.init(frame: .zero)
         
         configureUI()
+        
+        self.height(height)
     }
     
     required init(coder: NSCoder) {
@@ -60,10 +63,10 @@ fileprivate class TXTextInputRow: TXStackView {
     var textField: TXTextField
     
     let prefixImageView: TXImageView = {
-        let imgView = TXImageView()
-        
-        imgView.width(24)
-        imgView.height(24)
+        let imgView = TXImageView(
+            width: 24,
+            height: 24
+        )
         
         return imgView
     }()

@@ -18,6 +18,7 @@ class TXTextButton: TXButton {
         setTitle(title, for: .normal)
         //TODO: theme
         setTitleColor(.white, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 16)
         addTarget(target, action: onPressed, for: .touchUpInside)
     }
     

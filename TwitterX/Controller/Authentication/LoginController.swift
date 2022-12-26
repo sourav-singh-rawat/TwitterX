@@ -12,12 +12,12 @@ class LoginController: TXViewController {
     //MARK: - Properties
     
     private let logoImageView: TXImageView = {
-        let imgView = TXImageView()
-        imgView.image = UIImage(named: "TwitterLogo")
+        let imgView = TXImageView(
+            image: UIImage(named: "TwitterLogo"),
+            width: 150,
+            height: 150
+        )
         imgView.clipsToBounds = true
-        
-        imgView.width(150)
-        imgView.height(150)
         
         return imgView
     }()
@@ -30,8 +30,6 @@ class LoginController: TXViewController {
                 withImage: UIImage(named: "mail"),
                 withTextField: textField
             )
-
-            view.height(50)
             
             return view
         }()
@@ -45,8 +43,6 @@ class LoginController: TXViewController {
                 withTextField: textField
             )
             
-            view.height(50)
-            
             return view
         }()
         
@@ -55,8 +51,6 @@ class LoginController: TXViewController {
                 title: "Login",
                 onPressed: #selector(onLoginPressed)
             )
-            
-            button.height(50)
             
             return button
         }()

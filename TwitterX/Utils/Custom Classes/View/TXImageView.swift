@@ -8,12 +8,20 @@
 import UIKit
 
 class TXImageView: UIImageView {
-    override init(image: UIImage? = nil) {
+    required init(
+        image: UIImage? = nil,
+        width: CGFloat = 50,
+        height: CGFloat = 50
+    ) {
         super.init(image: image)
         
+        self.image = image
         contentMode = .scaleAspectFit
         //TODO: on theme
         tintColor = .white
+        
+        self.height(height)
+        self.width(width)
     }
     
     required init?(coder: NSCoder) {
