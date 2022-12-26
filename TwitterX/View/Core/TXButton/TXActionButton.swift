@@ -9,15 +9,15 @@ import UIKit
 
 class TXActionButton: TXButton {
     
-    required init(
+    required init(_ target: Any,
         title: String,
-        target: Any,
         onPressed: Selector
     ){
         super.init(frame: .zero)
         
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        //TODO: on color theme
         setTitleColor(.twitterBlue, for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 5
