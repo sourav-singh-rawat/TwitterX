@@ -51,9 +51,8 @@ class LoginController: TXViewController {
         }()
         
         lazy var loginButton: TXActionButton = {
-            let button = TXActionButton(
+            let button = TXActionButton(self,
                 title: "Login",
-                target: self,
                 onPressed: #selector(onLoginPressed)
             )
             
@@ -70,6 +69,33 @@ class LoginController: TXViewController {
         stackView.addArrangedSubview(loginButton)
         
         return stackView
+    }()
+    
+    lazy var signupButton : TXTextButton = {
+        let attributedTitle = NSMutableAttributedString(
+            string: "Don't have an account? ",
+            attributes: [
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
+                NSAttributedString.Key.foregroundColor: UIColor.white
+            ]
+        )
+        
+        attributedTitle.append(
+            NSMutableAttributedString(
+                string: "Sign Up",
+                attributes: [
+                    NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
+                    NSAttributedString.Key.foregroundColor: UIColor.white
+                ]
+            )
+        )
+        
+       let btn = TXTextButton(self,
+        attributedTitle: attributedTitle,
+        onPressed: #selector(onSignUpPressed)
+       )
+        
+        return btn
     }()
     
     //MARK: - Lifecycle
@@ -92,11 +118,14 @@ class LoginController: TXViewController {
         print("login")
     }
     
+    @objc private func onSignUpPressed() {
+        print("sign up")
+    }
+    
     //MARK: - Helper
     
     private func configureUI() {
         view.addSubview(logoImageView)
-        
         logoImageView.alignment(
             to: view,
             alignment: .topCenter,
@@ -116,6 +145,20 @@ class LoginController: TXViewController {
             withInsets: TXEdgeInsets.only(
                 bottom: 0
             )
+        )
+        
+        view.addSubview(signupButton)
+        signupButton.alignment(
+            to: view,
+            alignment: TXAlignment.bottomCenter,
+            withSafeAreaPortected: true
+        )
+        signupButton.margin(
+            to: view,
+            withInsets: TXEdgeInsets.only(
+                bottom: 16
+            ),
+            withSafeAreaProtected: true
         )
     }
     
