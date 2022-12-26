@@ -113,7 +113,9 @@ class LoginController: TXViewController {
     }
     
     private func onSignUpPressed() {
-        print("sign up")
+        let registrationController = RegistrationController()
+        
+        navigationController?.pushViewController(registrationController, animated: true)
     }
     
     //MARK: - Helper
