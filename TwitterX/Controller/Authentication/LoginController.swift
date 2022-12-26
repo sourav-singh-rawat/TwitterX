@@ -147,13 +147,6 @@ class LoginController: TXViewController {
             alignment: TXAlignment.bottomCenter,
             withSafeAreaPortected: true
         )
-        signupButton.margin(
-            to: view,
-            withInsets: TXEdgeInsets.only(
-                bottom: 16
-            ),
-            withSafeAreaProtected: true
-        )
     }
     
     
