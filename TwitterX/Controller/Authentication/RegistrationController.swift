@@ -141,7 +141,9 @@ class RegistrationController: UIViewController {
     }
     
     private func onAddPhotoPressed() {
+        
         media?.pickImage(isEditingAllowed: true)
+        
     }
     
     //MARK: - Helper
@@ -180,9 +182,11 @@ class RegistrationController: UIViewController {
 //MARK: - TXMediaDelegate
 
 extension RegistrationController: TXMediaDelegate {
+    
     func didImagePicked(image: UIImage) {
         addPhotoFieldView.setImage(image, for: .normal)
         addPhotoFieldView.toRoundedImage()
         addPhotoFieldView.withBorder()
     }
+    
 }
