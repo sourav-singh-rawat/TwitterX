@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */; };
+		3F0F9E0D295ABE4200DDE7D9 /* TXMediaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */; };
+		3F0F9E0F295ABED700DDE7D9 /* TXMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */; };
 		3F5B317929599FFD00A50043 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B317829599FFD00A50043 /* RegistrationController.swift */; };
 		3F6B5F592959B0FB009DD624 /* TXGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B5F582959B0FB009DD624 /* TXGestureRecognizer.swift */; };
 		3FA374B82959B93800F6BA81 /* TXImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA374B72959B93800F6BA81 /* TXImageButton.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImagePickerController.swift; sourceTree = "<group>"; };
+		3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXMediaProtocol.swift; sourceTree = "<group>"; };
+		3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXMedia.swift; sourceTree = "<group>"; };
 		3F5B317829599FFD00A50043 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3F6B5F582959B0FB009DD624 /* TXGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXGestureRecognizer.swift; sourceTree = "<group>"; };
 		3FA374B72959B93800F6BA81 /* TXImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImageButton.swift; sourceTree = "<group>"; };
@@ -87,6 +93,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0F9E08295ABDE000DDE7D9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDAB702959FF82009294E6 /* data */,
+				3FDDAB6F2959FF74009294E6 /* protocol */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3F0F9E09295ABDEA00DDE7D9 /* Amenities */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F9E0B295ABE0F00DDE7D9 /* data */,
+				3F0F9E0A295ABE0500DDE7D9 /* domain */,
+			);
+			path = Amenities;
+			sourceTree = "<group>";
+		};
+		3F0F9E0A295ABE0500DDE7D9 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		3F0F9E0B295ABE0F00DDE7D9 /* data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		3F6B5F572959B09D009DD624 /* Action */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +153,7 @@
 		3FCC7A4F2954CD13001E353F /* TwitterX */ = {
 			isa = PBXGroup;
 			children = (
+				3FDDAB6E2959FF64009294E6 /* Modules */,
 				3FCC7A642954CDCB001E353F /* Model */,
 				3FCC7A692954CDF3001E353F /* View */,
 				3FCC7A682954CDE5001E353F /* ViewModel */,
@@ -253,6 +292,7 @@
 				3FCC7A9529583FE8001E353F /* TXViewController.swift */,
 				3FCC7A9729584025001E353F /* TXTabBarController.swift */,
 				3FCC7AA429585607001E353F /* TXNavigationController.swift */,
+				3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +322,31 @@
 			children = (
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		3FDDAB6E2959FF64009294E6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F9E09295ABDEA00DDE7D9 /* Amenities */,
+				3F0F9E08295ABDE000DDE7D9 /* Core */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		3FDDAB6F2959FF74009294E6 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		3FDDAB702959FF82009294E6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		3FEE8F392958B2D600317CF6 /* TXButton */ = {
@@ -373,8 +438,10 @@
 				3FCC7A9A29584070001E353F /* TXImageView.swift in Sources */,
 				3FCC7A512954CD13001E353F /* AppDelegate.swift in Sources */,
 				3FA374B82959B93800F6BA81 /* TXImageButton.swift in Sources */,
+				3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */,
 				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
 				3FCC7A9429583FB9001E353F /* TXView.swift in Sources */,
+				3F0F9E0F295ABED700DDE7D9 /* TXMedia.swift in Sources */,
 				3F5B317929599FFD00A50043 /* RegistrationController.swift in Sources */,
 				3FCC7A7C2955A692001E353F /* UIColorX.swift in Sources */,
 				3FCC7A9C295840A0001E353F /* TXTextField.swift in Sources */,
@@ -382,6 +449,7 @@
 				3FCC7A8E2957ABDE001E353F /* TXTextInputField.swift in Sources */,
 				3F6B5F592959B0FB009DD624 /* TXGestureRecognizer.swift in Sources */,
 				3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */,
+				3F0F9E0D295ABE4200DDE7D9 /* TXMediaProtocol.swift in Sources */,
 				3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,

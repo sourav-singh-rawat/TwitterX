@@ -8,6 +8,8 @@
 import UIKit
 
 class TXImageButton: TXButton {
+    private var widthSize: CGFloat
+    private var heightSize: CGFloat
     
     init(
         image: UIImage,
@@ -15,14 +17,35 @@ class TXImageButton: TXButton {
         width: CGFloat = 50,
         height: CGFloat = 50
     ){
+        self.widthSize = width
+        self.heightSize = height
         super.init(onPressed: onPressed)
         
         setImage(image, for: .normal)
+        imageView?.contentMode = .scaleAspectFit
+        clipsToBounds = true
         //TODO: on color theme
         tintColor = .white
         
         self.width(width)
         self.height(height)
+    }
+    
+    func toRoundedImage() {
+        if(widthSize == heightSize){
+            layer.cornerRadius = widthSize/2
+            layer.masksToBounds = true
+        } else {
+          fatalError("Not a square image")
+        }
+    }
+    
+    func withBorder(
+        borderColor color: UIColor = UIColor.white,
+        borderWidth width: CGFloat = 3
+    ){
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
     }
     
     required init?(coder: NSCoder) {
@@ -33,4 +56,3 @@ class TXImageButton: TXButton {
         fatalError("init(onPressed:) has not been implemented")
     }
 }
-

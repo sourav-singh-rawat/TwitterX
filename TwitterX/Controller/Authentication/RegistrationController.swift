@@ -11,12 +11,14 @@ class RegistrationController: UIViewController {
     
     //MARK: - Properties
     
+    var media: TXMedia?
+    
     lazy var addPhotoFieldView: TXImageButton = {
         let btn = TXImageButton(
             image: UIImage(named: "plus_photo")!,
             onPressed: onAddPhotoPressed,
-            width: 150,
-            height: 150
+            width: 128,
+            height: 128
         )
     
         return btn
@@ -122,6 +124,9 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        media = TXMedia(navigationController: navigationController! as! TXNavigationController)
+        media?.delegate = self
+        
         configureUI()
     }
     
@@ -136,7 +141,7 @@ class RegistrationController: UIViewController {
     }
     
     private func onAddPhotoPressed() {
-        print("add photo")
+        media?.pickImage(isEditingAllowed: true)
     }
     
     //MARK: - Helper
@@ -170,4 +175,14 @@ class RegistrationController: UIViewController {
         )
     }
     
+}
+
+//MARK: - TXMediaDelegate
+
+extension RegistrationController: TXMediaDelegate {
+    func didImagePicked(image: UIImage) {
+        addPhotoFieldView.setImage(image, for: .normal)
+        addPhotoFieldView.toRoundedImage()
+        addPhotoFieldView.withBorder()
+    }
 }
