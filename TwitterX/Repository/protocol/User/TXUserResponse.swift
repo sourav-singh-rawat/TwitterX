@@ -16,7 +16,7 @@ protocol TXUserSuccessProtocol: TXRepositorySuccessProtocol {
 }
 
 struct TXCreateUserSuccess: TXUserSuccessProtocol {
-    var message: String
+    var message: String?
     let user: TXUser
 }
 

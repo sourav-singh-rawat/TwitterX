@@ -34,11 +34,11 @@ extension TXRepositoryFailureProtocol {
 }
 
 protocol TXRepositorySuccessProtocol {
-    var message: String { get set }
+    var message: String? { get set }
 }
 
 extension TXRepositorySuccessProtocol {
-    var message: String {
+    var message: String? {
         get {
             return "Success"
         }
