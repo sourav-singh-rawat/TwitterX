@@ -9,6 +9,8 @@ import UIKit
 import FirebaseStorage
 
 struct TXAssetsRepository: TXAssetsRepositoryProtocol {
+    let tag: String
+    
     var delegate: TXAssetsRepositoryDelegate?
     
     private let storageRef = Storage.storage().reference()
@@ -22,9 +24,10 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
         
         let storageLocationRef = storageRef.child(filePath)
         
-        storageLocationRef.putData(image,metadata: metaData) { metaDataResult, error in
+        let val = storageLocationRef.putData(image,metadata: metaData) { metaDataResult, error in
             if error != nil {
                 delegate?.didUploadImageFailure(
+                    tag: self.tag,
                     response: TXUploadImageFailure(
                         message: error?.localizedDescription ?? "Failed to upload image"
                     )
@@ -35,28 +38,24 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
             storageLocationRef.downloadURL { url, error in
                 if error != nil {
                     delegate?.didUploadImageFailure(
+                        tag: self.tag,
                         response: TXUploadImageFailure(
-                            message: error?.localizedDescription ?? "Can't detect image after saving in server"
+                            message: error?.localizedDescription ?? "Server failure"
                         )
                     )
                     return
                 }
                 
                 guard let url = url else {
-                    delegate?.didUploadImageFailure(
-                        response: TXUploadImageFailure(
-                            message: "Url is not provided by server, Server Error"
-                        )
-                    )
+                    assertionFailure("Url not recived from firebase")
                     return
                 }
                 
                 delegate?.didUploadImageSuccess(
+                    tag: self.tag,
                     response: TXUploadImageSuccess(imageUrl: url.absoluteString)
                 )
             }
-            
-            
         }
     }
     

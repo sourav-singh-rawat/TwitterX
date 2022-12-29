@@ -25,3 +25,14 @@ struct TXCreateUserFailure: TXUserFailureProtocol {
     var statusCode: String?
     var message: String
 }
+
+struct TXUpdateUserDetailsSuccess: TXUserSuccessProtocol {
+    var message: String?
+    let user: TXUser
+}
+
+
+struct TXCUpdateUserDetailsFailure: TXUserFailureProtocol {
+    var statusCode: String?
+    var message: String
+}

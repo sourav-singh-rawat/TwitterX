@@ -8,6 +8,7 @@
 import UIKit
 
 struct TXUser {
+    let uid: String
     var profileImage: UIImage?
     let profileImageUrl: String
     let email: String
