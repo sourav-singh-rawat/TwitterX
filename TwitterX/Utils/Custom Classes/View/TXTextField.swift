@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol TXTextFieldDelegate {
+    func didTextFieldChange(_ textField: UITextField)
+}
+
 class TXTextField: UITextField, UITextFieldDelegate {
-    required init(placeholder: String? = nil) {
+    var controllerDelegate: TXTextFieldDelegate?
+    
+    required init(withTag tag: Int,placeholder: String? = nil) {
         super.init(frame: .zero)
         delegate = self
         
         textColor = .white
+        
+        self.tag = tag
         
         font = UIFont.systemFont(ofSize: 16)
         
@@ -22,6 +30,8 @@ class TXTextField: UITextField, UITextFieldDelegate {
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
             )
         }
+        
+        addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -29,10 +39,14 @@ class TXTextField: UITextField, UITextFieldDelegate {
 //        delegate = self
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        controllerDelegate?.didTextFieldChange(textField)
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("focused")
+//        print("focused")
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("lost focus")
+//        print("lost focus")
     }
 }
