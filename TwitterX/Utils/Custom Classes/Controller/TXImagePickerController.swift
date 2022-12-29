@@ -33,7 +33,5 @@ class TXImagePickerController: UIImagePickerController, UIImagePickerControllerD
 //MARK: - Implementation
 
 extension TXImagePickerControllerDelegate {
-    func didImagePicked(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-        //
-    }
+    
 }

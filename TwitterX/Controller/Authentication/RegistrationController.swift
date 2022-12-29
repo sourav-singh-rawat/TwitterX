@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
     //MARK: - Properties
     
-    var media: TXMedia?
+    private var profileImage: UIImage?
+    private var email: String?
+    private var password: String?
+    private var fullname: String?
+    private var username: String?
     
-    lazy var addPhotoFieldView: TXImageButton = {
+    private var media: TXMedia?
+    
+    private var userRepository = TXUserRepository()
+    
+    private lazy var addPhotoFieldView: TXImageButton = {
         let btn = TXImageButton(
             image: UIImage(named: "plus_photo")!,
             onPressed: onAddPhotoPressed,
@@ -24,9 +33,12 @@ class RegistrationController: UIViewController {
         return btn
     }()
     
-    lazy var signupContainerView: TXStackView = {
+    private lazy var signupContainerView: TXStackView = {
         let emailTextField: TXTextInputField = {
-            let inputField = TXTextField(placeholder: "Email")
+            let inputField = TXTextField(
+                withTag: 0,
+                placeholder: "Email"
+            )
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "mail"),
@@ -37,7 +49,10 @@ class RegistrationController: UIViewController {
         }()
         
         let passwordTextField: TXTextInputField = {
-            let inputField = TXTextField(placeholder: "Password")
+            let inputField = TXTextField(
+                withTag: 1,
+                placeholder: "Password"
+            )
             inputField.isSecureTextEntry = true
             
             let field = TXTextInputField(
@@ -49,7 +64,10 @@ class RegistrationController: UIViewController {
         }()
         
         let fullnameTextField: TXTextInputField = {
-            let inputField = TXTextField(placeholder: "Full Name")
+            let inputField = TXTextField(
+                withTag: 2,
+                placeholder: "Full Name"
+            )
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "ic_person_outline_white_2x"),
@@ -60,7 +78,10 @@ class RegistrationController: UIViewController {
         }()
         
         let usernameTextField: TXTextInputField = {
-            let inputField = TXTextField(placeholder: "Username")
+            let inputField = TXTextField(
+                withTag: 3,
+                placeholder: "Username"
+            )
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "ic_person_outline_white_2x"),
@@ -92,7 +113,7 @@ class RegistrationController: UIViewController {
         return stackView
     }()
     
-    lazy var loginButton : TXTextButton = {
+    private lazy var loginButton : TXTextButton = {
         let attributedTitle = NSMutableAttributedString(
             string: "Already have an account? ",
             attributes: [
@@ -136,8 +157,38 @@ class RegistrationController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    private func verifyForm() -> Bool {
+        if profileImage == nil {
+            //TODO: show toast
+            fatalError("Select Profile image")
+        }
+        if email != nil {
+            fatalError("Enter email")
+        }
+        if password != nil {
+            fatalError("Enter password")
+        }
+        if fullname != nil {
+            fatalError("Enter fullname")
+        }
+        if username != nil {
+            fatalError("Enter username")
+        }
+        
+        return true
+    }
+    
     private func onSignupPressed() {
-        print("sign up")
+        let isFormVerified = verifyForm()
+        
+        if isFormVerified {
+            userRepository.createUser(
+                with: TXCreateUserRequest(
+                    email: email!,
+                    password: password!
+                )
+            )
+        }
     }
     
     private func onAddPhotoPressed() {
@@ -185,8 +236,51 @@ extension RegistrationController: TXMediaDelegate {
     
     func didImagePicked(image: UIImage) {
         addPhotoFieldView.setImage(image, for: .normal)
+        profileImage = image
+        
         addPhotoFieldView.toRoundedImage()
         addPhotoFieldView.withBorder()
     }
     
+}
+
+//MARK: - TXTextFieldDelegate
+
+extension RegistrationController: TXTextFieldDelegate {
+    func didTextFieldChange(_ textField: UITextField) {
+        let newText = textField.text
+        
+        switch textField.tag {
+        case 0:
+            onEmailChanged(newText)
+            break
+        case 1:
+            onPasswordChanged(newText)
+            break
+        case 2:
+            onFullnameChanged(newText)
+            break
+        case 3:
+            onUsernameChanged(newText)
+            break
+        default:
+            break
+        }
+    }
+    
+    private func onEmailChanged(_ text:String?){
+        email = text
+    }
+    
+    private func onPasswordChanged(_ text:String?){
+        password = text
+    }
+    
+    private func onFullnameChanged(_ text:String?){
+       fullname = text
+    }
+    
+    private func onUsernameChanged(_ text:String?){
+        username = text
+    }
 }
