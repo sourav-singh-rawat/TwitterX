@@ -38,7 +38,7 @@ class RegistrationController: TXViewController {
     private lazy var signupContainerView: TXStackView = {
         let emailTextField: TXTextInputField = {
             let inputField = TXTextField(
-                withTag: 0,
+                withTag: TextField.emailField.rawValue,
                 placeholder: "Email"
             )
             inputField.controllerDelegate = self
@@ -53,7 +53,7 @@ class RegistrationController: TXViewController {
         
         let passwordTextField: TXTextInputField = {
             let inputField = TXTextField(
-                withTag: 1,
+                withTag: TextField.passwordField.rawValue,
                 placeholder: "Password"
             )
             inputField.isSecureTextEntry = true
@@ -69,7 +69,7 @@ class RegistrationController: TXViewController {
         
         let fullnameTextField: TXTextInputField = {
             let inputField = TXTextField(
-                withTag: 2,
+                withTag: TextField.fullnameField.rawValue,
                 placeholder: "Full Name"
             )
             inputField.controllerDelegate = self
@@ -84,7 +84,7 @@ class RegistrationController: TXViewController {
         
         let usernameTextField: TXTextInputField = {
             let inputField = TXTextField(
-                withTag: 3,
+                withTag: TextField.usernameField.rawValue,
                 placeholder: "Username"
             )
             inputField.controllerDelegate = self
@@ -273,20 +273,28 @@ extension RegistrationController: TXMediaDelegate {
 //MARK: - TXTextFieldDelegate
 
 extension RegistrationController: TXTextFieldDelegate {
+    
+    private enum TextField: Int {
+        case emailField = 0
+        case passwordField = 1
+        case fullnameField = 2
+        case usernameField = 3
+    }
+    
     func didTextFieldChange(_ textField: UITextField) {
         let newText = textField.text
         
         switch textField.tag {
-        case 0:
+        case TextField.emailField.rawValue:
             onEmailChanged(newText)
             break
-        case 1:
+        case TextField.passwordField.rawValue:
             onPasswordChanged(newText)
             break
-        case 2:
+        case TextField.fullnameField.rawValue:
             onFullnameChanged(newText)
             break
-        case 3:
+        case TextField.usernameField.rawValue:
             onUsernameChanged(newText)
             break
         default:

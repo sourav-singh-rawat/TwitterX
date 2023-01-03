@@ -195,7 +195,7 @@ class LoginController: TXViewController {
 
 extension LoginController: TXTextFieldDelegate {
     
-    enum TextField: Int{
+    private enum TextField: Int{
         case emailField = 0
         case passwordField = 1
     }
