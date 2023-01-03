@@ -140,4 +140,8 @@ class TXUserRepository: TXUserRepositoryProtocol {
         
         addUserDetailsCompletion?(.success(request.user))
     }
+    
+    func loginUser(with request: TXLoginUserRequest) {
+        
+    }
 }

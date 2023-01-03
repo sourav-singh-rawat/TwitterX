@@ -11,9 +11,14 @@ class LoginController: TXViewController {
     
     //MARK: - Properties
     
+    private var email: String?
+    private var password: String?
+    
+    let userRepository = TXUserRepository()
+    
     private let logoImageView: TXImageView = {
         let imgView = TXImageView(
-            image: UIImage(named: "TwitterLogo"),
+            image: UIImage(named: ImageAsset.twitterLogo),
             width: 150,
             height: 150
         )
@@ -24,10 +29,14 @@ class LoginController: TXViewController {
     
     private lazy var loginContainerView: TXStackView = {
         lazy var emailContainerView: TXTextInputField = {
-            let textField = TXTextField(placeholder: "Email")
+            let textField = TXTextField(
+                withTag: TextField.emailField.rawValue,
+                placeholder: "Email"
+            )
+            textField.controllerDelegate = self
             
             let view = TXTextInputField(
-                withImage: UIImage(named: "mail"),
+                withImage: UIImage(named: ImageAsset.mail),
                 withTextField: textField
             )
             
@@ -35,11 +44,15 @@ class LoginController: TXViewController {
         }()
         
         lazy var passwordContainerView: TXTextInputField = {
-            let textField = TXTextField(placeholder: "Password")
+            let textField = TXTextField(
+                withTag:TextField.passwordField.rawValue,
+                placeholder: "Password"
+            )
             textField.isSecureTextEntry = true
+            textField.controllerDelegate = self
             
             let view = TXTextInputField(
-                withImage: UIImage(named: "ic_lock_outline_white_2x"),
+                withImage: UIImage(named: ImageAsset.lock_outline),
                 withTextField: textField
             )
             
@@ -103,13 +116,37 @@ class LoginController: TXViewController {
         //nav bar content become white
         navigationController?.navigationBar.barStyle = .black
         
+        userRepository.delegate = self
+        
         configureUI()
     }
     
     //MARK: - Selectors
     
+    private func verifyForm() -> Bool {
+        if email == nil {
+            _showToast(message:"Enter email")
+            return false
+        }
+        if password == nil {
+            _showToast(message:"Enter password")
+            return false
+        }
+        
+        return true
+    }
+    
     private func onLoginPressed() {
-        print("login")
+        let isFormVerified = verifyForm()
+        
+        if isFormVerified {
+            userRepository.loginUser(
+                with: TXLoginUserRequest(
+                    email: email!,
+                    password: password!
+                )
+            )
+        }
     }
     
     private func onSignUpPressed() {
@@ -151,5 +188,48 @@ class LoginController: TXViewController {
         )
     }
     
+    private func _showToast(message: String) {
+        showToast(message: message,withBottomInset: 32)
+    }
+}
+
+extension LoginController: TXTextFieldDelegate {
     
+    enum TextField: Int{
+        case emailField = 0
+        case passwordField = 1
+    }
+    
+    func didTextFieldChange(_ textField: UITextField) {
+        let newValue = textField.text
+        
+        switch textField.tag {
+        case TextField.emailField.rawValue:
+            onEmailChanged(newValue)
+            break
+        case TextField.passwordField.rawValue:
+            onPasswordChanged(newValue)
+            break
+        default:
+            break
+        }
+    }
+    
+    private func onEmailChanged(_ value:String?) {
+        email = value
+    }
+    
+    private func onPasswordChanged(_ value:String?) {
+        password = value
+    }
+}
+
+extension LoginController: TXUserRepositoryDelegate {
+    func didLoginUserSuccess(response: TXLoginUserSuccess) {
+        print(response.user.fullname)
+    }
+    
+    func didLoginUserFailed(response: TXLoginUserFailure) {
+        _showToast(message: response.message)
+    }
 }

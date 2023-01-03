@@ -10,6 +10,7 @@
 protocol TXUserRepositoryProtocol: TXRepositoryProtocol {
     func createUser(with request: TXCreateUserRequest)
     func addUserDetails(with request: TXAddUserDetailsRequest)
+    func loginUser(with request: TXLoginUserRequest)
 }
 
 //MARK: - Delegate
@@ -20,6 +21,9 @@ protocol TXUserRepositoryDelegate {
     
     func didAddUserDetailsSuccess(response: TXAddUserDetailsSuccess)
     func didAddUserDetailsFailed(response: TXAddUserDetailsFailure)
+    
+    func didLoginUserSuccess(response: TXLoginUserSuccess)
+    func didLoginUserFailed(response: TXLoginUserFailure)
 }
 
 extension TXUserRepositoryDelegate {
@@ -34,6 +38,13 @@ extension TXUserRepositoryDelegate {
         
     }
     func didAddUserDetailsFailed(response: TXAddUserDetailsFailure){
+        
+    }
+    
+    func didLoginUserSuccess(response: TXLoginUserSuccess){
+        
+    }
+    func didLoginUserFailed(response: TXLoginUserFailure){
         
     }
 }

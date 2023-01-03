@@ -28,3 +28,12 @@ struct TXAddUserDetailsRequest: TXRepositoryRequest {
         ]
     }
 }
+
+struct TXLoginUserRequest: TXRepositoryRequest {
+    let email: String
+    let password: String
+    
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
+}

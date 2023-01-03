@@ -20,7 +20,6 @@ struct TXCreateUserSuccess: TXUserSuccessProtocol {
     let user: TXUser
 }
 
-
 struct TXCreateUserFailure: TXUserFailureProtocol {
     var statusCode: String?
     var message: String
@@ -31,8 +30,17 @@ struct TXAddUserDetailsSuccess: TXUserSuccessProtocol {
     let user: TXUser
 }
 
-
 struct TXAddUserDetailsFailure: TXUserFailureProtocol {
+    var statusCode: String?
+    var message: String
+}
+
+struct TXLoginUserSuccess: TXUserSuccessProtocol {
+    var message: String?
+    var user: TXUser
+}
+
+struct TXLoginUserFailure: TXUserFailureProtocol {
     var statusCode: String?
     var message: String
 }
