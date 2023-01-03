@@ -24,7 +24,7 @@ class RegistrationController: TXViewController {
     
     private lazy var addPhotoFieldView: TXImageButton = {
         let btn = TXImageButton(
-            image: UIImage(named: "plus_photo")!,
+            image: UIImage(named: ImageAsset.plus_photo)!,
             onPressed: onAddPhotoPressed,
             width: 128,
             height: 128
@@ -42,7 +42,7 @@ class RegistrationController: TXViewController {
             inputField.controllerDelegate = self
             
             let field = TXTextInputField(
-                withImage: UIImage(named: "mail"),
+                withImage: UIImage(named: ImageAsset.mail),
                 withTextField: inputField
             )
             
@@ -58,7 +58,7 @@ class RegistrationController: TXViewController {
             inputField.controllerDelegate = self
             
             let field = TXTextInputField(
-                withImage: UIImage(named: "ic_lock_outline_white_2x"),
+                withImage: UIImage(named: ImageAsset.lock_outline),
                 withTextField: inputField
             )
             
@@ -73,7 +73,7 @@ class RegistrationController: TXViewController {
             inputField.controllerDelegate = self
             
             let field = TXTextInputField(
-                withImage: UIImage(named: "ic_person_outline_white_2x"),
+                withImage: UIImage(named: ImageAsset.person_outline),
                 withTextField: inputField
             )
             
@@ -88,7 +88,7 @@ class RegistrationController: TXViewController {
             inputField.controllerDelegate = self
             
             let field = TXTextInputField(
-                withImage: UIImage(named: "ic_person_outline_white_2x"),
+                withImage: UIImage(named: ImageAsset.person_outline),
                 withTextField: inputField
             )
             

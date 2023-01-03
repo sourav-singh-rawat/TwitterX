@@ -51,6 +51,7 @@
 		3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA2295854D9001E353F /* TXStackView.swift */; };
 		3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA429585607001E353F /* TXNavigationController.swift */; };
 		3FCC7AA7295861C3001E353F /* TXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC7AA6295861C3001E353F /* TXButton.swift */; };
+		3FD1F9142963D2F000B6387F /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F9132963D2F000B6387F /* ImageAssets.swift */; };
 		3FE1FF60295C3A1800A39720 /* TXUserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE1FF5F295C3A1800A39720 /* TXUserRepositoryProtocol.swift */; };
 		3FEE8F3B2958B30400317CF6 /* TXActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */; };
 		3FF85297295D5732002DBD55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF85296295D5732002DBD55 /* FirebaseAuth */; };
@@ -107,6 +108,7 @@
 		3FCC7AA2295854D9001E353F /* TXStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXStackView.swift; sourceTree = "<group>"; };
 		3FCC7AA429585607001E353F /* TXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXNavigationController.swift; sourceTree = "<group>"; };
 		3FCC7AA6295861C3001E353F /* TXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXButton.swift; sourceTree = "<group>"; };
+		3FD1F9132963D2F000B6387F /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		3FE1FF5F295C3A1800A39720 /* TXUserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActionButton.swift; sourceTree = "<group>"; };
 		62ACE2EF2AF8735F305A1B32 /* Pods-TwitterX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterX.release.xcconfig"; path = "Target Support Files/Pods-TwitterX/Pods-TwitterX.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		3FCC7A652954CDD9001E353F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1F9122963D2CA00B6387F /* Assets */,
 				3FCC7A8F29583EDB001E353F /* Custom Classes */,
 				3FCC7A7429554FA4001E353F /* Extensions */,
 			);
@@ -404,6 +407,14 @@
 				3F8E5C452962CF050017C4C2 /* TXError.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		3FD1F9122963D2CA00B6387F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1F9132963D2F000B6387F /* ImageAssets.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		3FDDAB6E2959FF64009294E6 /* Modules */ = {
@@ -624,6 +635,7 @@
 				3FCC7AA3295854D9001E353F /* TXStackView.swift in Sources */,
 				3F0F9E0D295ABE4200DDE7D9 /* TXMediaProtocol.swift in Sources */,
 				3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */,
+				3FD1F9142963D2F000B6387F /* ImageAssets.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3F9C03F5295D8B110031E928 /* TXAssetsRepository.swift in Sources */,
 				3FCC7A6B2954D0C4001E353F /* MainTabController.swift in Sources */,
