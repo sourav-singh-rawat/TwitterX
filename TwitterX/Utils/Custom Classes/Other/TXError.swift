@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct TXError: Error {
-    let localizedDescription: String
+protocol TXError: Error {
+    var localizedDescription: String { get set }
 }

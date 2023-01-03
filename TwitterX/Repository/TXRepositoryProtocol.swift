@@ -21,12 +21,12 @@ protocol TXRepositoryRequest{
 
 //MARK: - Response Protocol
 
-protocol TXRepositoryFailureProtocol {
-    var message: String { get set }
+protocol TXRepositoryFailureProtocol: TXError {
+    var statusCode: Int? { get set }
 }
 
 extension TXRepositoryFailureProtocol {
-    var message: String {
+    var localizedDescription: String {
         get {
             return "😯 Oops! Something went wrong."
         }

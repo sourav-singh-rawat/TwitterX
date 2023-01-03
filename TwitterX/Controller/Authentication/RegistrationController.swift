@@ -154,8 +154,6 @@ class RegistrationController: TXViewController {
         media = TXMedia(navigationController: navigationController! as! TXNavigationController)
         media?.delegate = self
         
-        userRepository.delegate = self
-        
         configureUI()
     }
     
@@ -207,9 +205,16 @@ class RegistrationController: TXViewController {
                 )
             )
             
-            userRepository.createUser(
-                with: request
-            )
+            userRepository.createUser(with: request) {[weak self] result in
+                switch result {
+                case .success(let response):
+                    print(response.user.uid)
+                    break
+                case .failure(let response):
+                    self?._showToast(message: response.localizedDescription)
+                    break
+                }
+            }
         }
     }
     
@@ -317,15 +322,4 @@ extension RegistrationController: TXTextFieldDelegate {
     private func onUsernameChanged(_ text:String?){
         username = text
     }
-}
-
-extension RegistrationController: TXUserRepositoryDelegate {
-    func didCreateUserSuccess(response: TXCreateUserSuccess) {
-        print(response.user.uid)
-    }
-    
-    func didCreateUserFailed(response: TXCreateUserFailure) {
-        _showToast(message:response.message)
-    }
-    
 }

@@ -16,8 +16,9 @@ protocol TXAssetsSuccessProtocol: TXRepositorySuccessProtocol {
 }
 
 struct TXUploadImageFailure: TXAssetsFailureProtocol {
-    var message: String
     var statusCode: Int?
+    
+    var localizedDescription: String
 }
 
 struct TXUploadImageSuccess: TXAssetsSuccessProtocol {

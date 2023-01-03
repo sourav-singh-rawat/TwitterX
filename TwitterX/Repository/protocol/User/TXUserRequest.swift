@@ -37,3 +37,12 @@ struct TXLoginUserRequest: TXRepositoryRequest {
         return [:]
     }
 }
+
+struct TXGetUserDetailsRequest: TXRepositoryRequest {
+    let uuid: String
+    
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
+    
+}

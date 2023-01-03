@@ -9,73 +9,9 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-typealias AddUserDetailsCompletion = (Result<TXUser,TXError>) -> Void
-
 class TXUserRepository: TXUserRepositoryProtocol {
     
-    var delegate: TXUserRepositoryDelegate?
-    
-    func createUser(with request: TXCreateUserRequest) {
-        var assetsRepository = TXAssetsRepository()
-        
-        func uploadProfileDetails(uuid: String){
-            assetsRepository.uploadImageCompletion = { result in
-                switch result {
-                case .success(let url):
-                    
-                    addUserDetailsToDatabase(uuid: uuid,imageUrl: url)
-                    
-                    break
-                case .failure(let error):
-                    assertionFailure(error.localizedDescription)
-                    break
-                }
-            }
-            
-            uploadProfileImage(uuid: uuid)
-        }
-        
-        func uploadProfileImage(uuid:String){
-            assetsRepository.uploadImage(
-                with: TXUploadImageRequest(
-                    uuid: uuid,
-                    image: request.user.profileImage!,
-                    imageType: .profileImage
-                )
-            )
-        }
-        
-        func addUserDetailsToDatabase(uuid: String,imageUrl url:String){
-            self.addUserDetailsCompletion = { result in
-                switch result {
-                case .success(let user):
-                    self.delegate?.didCreateUserSuccess(
-                        response: TXCreateUserSuccess(
-                            user: user
-                        )
-                    )
-                    break
-                case .failure(let error):
-                    self.delegate?.didCreateUserFailed(
-                        response: TXCreateUserFailure(
-                            message: error.localizedDescription
-                        )
-                    )
-                }
-            }
-            
-            self.addUserDetails(
-                with: TXAddUserDetailsRequest(
-                    user: TXUser(
-                        uid: uuid,
-                        profileImageUrl: url,
-                        email: request.user.email,
-                        fullname: request.user.fullname,
-                        username: request.user.username
-                    )
-                )
-            )
-        }
+    func createUser(with request: TXCreateUserRequest,completion: @escaping CreateUserCompletion) {
         
         //Adding details to auth
         
@@ -89,11 +25,11 @@ class TXUserRepository: TXUserRepositoryProtocol {
             }
             
             if result == nil || error != nil {
-                self.delegate?.didCreateUserFailed(
-                    response: TXCreateUserFailure(
-                        message: error?.localizedDescription ?? "Failed to create user"
+                completion(.failure(
+                    TXCreateUserFailure(
+                        localizedDescription: error?.localizedDescription ?? "Failed to create user"
                     )
-                )
+                ))
                 return
             }
             
@@ -106,42 +42,103 @@ class TXUserRepository: TXUserRepositoryProtocol {
                 return
             }
             
-            uploadProfileDetails(uuid: uuid)
+            let assetsRepository = TXAssetsRepository()
+            
+            assetsRepository.uploadImage(
+                with: TXUploadImageRequest(
+                    uuid: uuid,
+                    image: request.user.profileImage!,
+                    imageType: .profileImage
+                )) { [weak self] result in
+                    
+                    switch result {
+                    case .success(let response):
+                        
+                        self?.addUserDetails(
+                            with: TXAddUserDetailsRequest(
+                                user: TXUser(
+                                    uid: uuid,
+                                    profileImageUrl: response.imageUrl,
+                                    email: request.user.email,
+                                    fullname: request.user.fullname,
+                                    username: request.user.username
+                                )
+                            )) { result in
+                                switch result {
+                                case .success(let response):
+                                    completion(.success(
+                                        TXCreateUserSuccess(user: response.user)
+                                    ))
+                                    break
+                                case .failure(let response):
+                                    completion(.failure(
+                                        TXCreateUserFailure(
+                                            localizedDescription: response.localizedDescription
+                                        )
+                                    ))
+                                    break
+                                }
+                            }
+                        break
+                    case .failure(let response):
+                        completion(.failure(
+                            TXCreateUserFailure(
+                                localizedDescription: response.localizedDescription
+                            )
+                        ))
+                        break
+                    }
+                }
         }
     }
     
-    
-    var addUserDetailsCompletion: AddUserDetailsCompletion?
-    func addUserDetails(with request: TXAddUserDetailsRequest) {
+    func addUserDetails(with request: TXAddUserDetailsRequest,completion: @escaping AddUserDetailsCompletion) {
         Firestore.firestore()
             .collection("Users")
             .document(request.user.uid)
-            .setData(request.toPayload()) { [weak self] error in
-                guard let self = self else {
-                    return
-                }
-                
-                let _error = TXError(
-                    localizedDescription: error?.localizedDescription ?? "Failed to add user details"
-                )
-                
-                self.delegate?.didAddUserDetailsFailed(
-                    response: TXAddUserDetailsFailure(
-                        message: _error.localizedDescription
+            .setData(request.toPayload()) { error in
+                completion(.failure(
+                    TXAddUserDetailsFailure(
+                        localizedDescription: error?.localizedDescription ?? "Failed to add user details"
                     )
-                )
-                
-                self.addUserDetailsCompletion?(.failure(_error))
+                ))
             }
         
-        delegate?.didAddUserDetailsSuccess(
-            response: TXAddUserDetailsSuccess(user: request.user)
-        )
-        
-        addUserDetailsCompletion?(.success(request.user))
+        completion(.success(TXAddUserDetailsSuccess(user: request.user)))
     }
     
-    func loginUser(with request: TXLoginUserRequest) {
-        
+    func loginUser(with request: TXLoginUserRequest,completion: @escaping LoginUserCompletion) {
+        Auth.auth().signIn(
+            withEmail: request.email,
+            password: request.password
+        ) { result, error in
+            if result == nil || error != nil {
+                completion(.failure(
+                    TXLoginUserFailure(
+                        localizedDescription: error?.localizedDescription ?? "Failed to login"
+                    )
+                ))
+            }
+            
+            guard let uuid = result?.user.uid else { return }
+            
+            
+        }
+    }
+    
+    func getUserDetails(with request: TXGetUserDetailsRequest,completion: @escaping GetUserDetailsCompletion) {
+//        Firestore
+//            .firestore()
+//            .collection("Users")
+//            .getDocuments { snapshot, error in
+//                if snapshot == nil || error != nil {
+//                    self.delegate?.didGetUserDetailsFailed(
+//                        response: TXGetUserDetailsFailure(
+//                            message: error?.localizedDescription ?? "Failed to get user details"
+//                        )
+//                    )
+//                }
+//
+//            }
     }
 }

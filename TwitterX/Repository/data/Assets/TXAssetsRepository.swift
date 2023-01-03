@@ -8,16 +8,11 @@
 import UIKit
 import FirebaseStorage
 
-typealias UploadImageCompletion = ((Result<String,TXError>)->Void)
-
 struct TXAssetsRepository: TXAssetsRepositoryProtocol {
-    
-    var delegate: TXAssetsRepositoryDelegate?
-    
     private let storageRef = Storage.storage().reference()
     
     var uploadImageCompletion: UploadImageCompletion?
-    func uploadImage(with request: TXUploadImageRequest) {
+    func uploadImage(with request: TXUploadImageRequest,completion: @escaping UploadImageCompletion) {
         let payload = request.toPayload()
         
         let filePath = payload["filePath"] as! String
@@ -26,33 +21,23 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
         
         let storageLocationRef = storageRef.child(filePath)
         
-        let val = storageLocationRef.putData(image,metadata: metaData) { metaDataResult, error in
+        storageLocationRef.putData(image,metadata: metaData) { metaDataResult, error in
             if error != nil {
-                
-                let _error = TXError(localizedDescription: error?.localizedDescription ?? "Failed to upload image")
-                
-                delegate?.didUploadImageFailure(
-                    response: TXUploadImageFailure(
-                        message: _error.localizedDescription
+                completion(.failure(
+                    TXUploadImageFailure(
+                        localizedDescription: error?.localizedDescription ?? "Failed to upload image"
                     )
-                )
-                
-                uploadImageCompletion?(.failure(_error))
+                ))
                 return
             }
             
             storageLocationRef.downloadURL { url, error in
                 if error != nil {
-                    
-                    let _error = TXError(localizedDescription: error?.localizedDescription ?? "Server failure while image uploading")
-                    
-                    delegate?.didUploadImageFailure(
-                        response: TXUploadImageFailure(
-                            message: _error.localizedDescription
+                    completion(.failure(
+                        TXUploadImageFailure(
+                            localizedDescription: error?.localizedDescription ?? "Server failure while image uploading"
                         )
-                    )
-                    
-                    uploadImageCompletion?(.failure(_error))
+                    ))
                     return
                 }
                 
@@ -61,11 +46,9 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
                     return
                 }
                 
-                delegate?.didUploadImageSuccess(
-                    response: TXUploadImageSuccess(imageUrl: url.absoluteString)
-                )
-                
-                uploadImageCompletion?(.success(url.absoluteString))
+                completion(.success(
+                    TXUploadImageSuccess(imageUrl: url.absoluteString)
+                ))
             }
         }
     }

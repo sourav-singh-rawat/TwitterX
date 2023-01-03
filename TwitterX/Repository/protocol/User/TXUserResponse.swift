@@ -21,8 +21,8 @@ struct TXCreateUserSuccess: TXUserSuccessProtocol {
 }
 
 struct TXCreateUserFailure: TXUserFailureProtocol {
-    var statusCode: String?
-    var message: String
+    var statusCode: Int?
+    var localizedDescription: String
 }
 
 struct TXAddUserDetailsSuccess: TXUserSuccessProtocol {
@@ -31,8 +31,9 @@ struct TXAddUserDetailsSuccess: TXUserSuccessProtocol {
 }
 
 struct TXAddUserDetailsFailure: TXUserFailureProtocol {
-    var statusCode: String?
-    var message: String
+    var statusCode: Int?
+    
+    var localizedDescription: String
 }
 
 struct TXLoginUserSuccess: TXUserSuccessProtocol {
@@ -41,6 +42,18 @@ struct TXLoginUserSuccess: TXUserSuccessProtocol {
 }
 
 struct TXLoginUserFailure: TXUserFailureProtocol {
-    var statusCode: String?
-    var message: String
+    var statusCode: Int?
+    
+    var localizedDescription: String
+}
+
+struct TXGetUserDetailsSuccess: TXUserSuccessProtocol {
+    var message: String?
+    var user: TXUser
+}
+
+struct TXGetUserDetailsFailure: TXUserFailureProtocol {
+    var statusCode: Int?
+    
+    var localizedDescription: String
 }

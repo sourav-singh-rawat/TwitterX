@@ -116,8 +116,6 @@ class LoginController: TXViewController {
         //nav bar content become white
         navigationController?.navigationBar.barStyle = .black
         
-        userRepository.delegate = self
-        
         configureUI()
     }
     
@@ -144,8 +142,16 @@ class LoginController: TXViewController {
                 with: TXLoginUserRequest(
                     email: email!,
                     password: password!
-                )
-            )
+                )) { [weak self] result in
+                    switch result {
+                    case .success(let response):
+                        print(response.user.fullname)
+                        break
+                    case .failure(let response):
+                        self?._showToast(message: response.localizedDescription)
+                        break
+                    }
+                }
         }
     }
     
@@ -221,15 +227,5 @@ extension LoginController: TXTextFieldDelegate {
     
     private func onPasswordChanged(_ value:String?) {
         password = value
-    }
-}
-
-extension LoginController: TXUserRepositoryDelegate {
-    func didLoginUserSuccess(response: TXLoginUserSuccess) {
-        print(response.user.fullname)
-    }
-    
-    func didLoginUserFailed(response: TXLoginUserFailure) {
-        _showToast(message: response.message)
     }
 }

@@ -7,24 +7,11 @@
 
 import Foundation
 
-//MARK: - Repository
+typealias UploadImageCompletion = (Result<TXUploadImageSuccess,TXUploadImageFailure>)->Void
 
 protocol TXAssetsRepositoryProtocol: TXRepositoryProtocol {
-    func uploadImage(with request: TXUploadImageRequest)
-}
-
-//MARK: - Delegate
-
-protocol TXAssetsRepositoryDelegate {
-    func didUploadImageSuccess(response: TXUploadImageSuccess)
-    func didUploadImageFailure(response: TXUploadImageFailure)
-}
-
-extension TXAssetsRepositoryDelegate {
-    func didUploadImageSuccess(response: TXUploadImageSuccess){
-        
-    }
-    func didUploadImageFailure(response: TXUploadImageFailure){
-        
-    }
+    func uploadImage(
+        with request: TXUploadImageRequest,
+        completion: @escaping UploadImageCompletion
+    )
 }
