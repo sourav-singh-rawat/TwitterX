@@ -11,18 +11,11 @@ struct TXCreateUserRequest: TXRepositoryRequest {
     let user: TXUser
     
     func toPayload() -> [String : Any] {
-        return [
-            "uid":user.uid,
-            "profileImageUrl":user.profileImageUrl,
-            "email":user.email,
-            "password":user.password,
-            "fullname":user.fullname,
-            "username":user.username
-        ]
+        return [:]
     }
 }
 
-struct TXUpdateUserDetailsRequest: TXRepositoryRequest {
+struct TXAddUserDetailsRequest: TXRepositoryRequest {
     let user: TXUser
     
     func toPayload() -> [String : Any] {
@@ -30,7 +23,6 @@ struct TXUpdateUserDetailsRequest: TXRepositoryRequest {
             "uid":user.uid,
             "profileImageUrl":user.profileImageUrl,
             "email":user.email,
-            "password":user.password,
             "fullname":user.fullname,
             "username":user.username
         ]

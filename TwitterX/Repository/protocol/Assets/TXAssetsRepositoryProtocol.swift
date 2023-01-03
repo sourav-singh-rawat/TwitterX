@@ -16,8 +16,8 @@ protocol TXAssetsRepositoryProtocol: TXRepositoryProtocol {
 //MARK: - Delegate
 
 protocol TXAssetsRepositoryDelegate {
-    func didUploadImageSuccess(tag: String,response: TXUploadImageSuccess)
-    func didUploadImageFailure(tag: String,response: TXUploadImageFailure)
+    func didUploadImageSuccess(response: TXUploadImageSuccess)
+    func didUploadImageFailure(response: TXUploadImageFailure)
 }
 
 extension TXAssetsRepositoryDelegate {

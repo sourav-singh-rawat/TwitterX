@@ -16,6 +16,7 @@
 		3F39779E295C400E008F83CC /* TXRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39779D295C400E008F83CC /* TXRepositoryProtocol.swift */; };
 		3F5B317929599FFD00A50043 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B317829599FFD00A50043 /* RegistrationController.swift */; };
 		3F6B5F592959B0FB009DD624 /* TXGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B5F582959B0FB009DD624 /* TXGestureRecognizer.swift */; };
+		3F8E5C462962CF050017C4C2 /* TXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E5C452962CF050017C4C2 /* TXError.swift */; };
 		3F8EE3A4295C2BF100EFDC05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8EE3A3295C2BF100EFDC05 /* GoogleService-Info.plist */; };
 		3F9C03ED295D860E0031E928 /* TXAssetsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03EC295D860E0031E928 /* TXAssetsRepositoryProtocol.swift */; };
 		3F9C03EF295D861D0031E928 /* TXAssetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03EE295D861D0031E928 /* TXAssetsRequest.swift */; };
@@ -69,6 +70,7 @@
 		3F39779D295C400E008F83CC /* TXRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3F5B317829599FFD00A50043 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3F6B5F582959B0FB009DD624 /* TXGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXGestureRecognizer.swift; sourceTree = "<group>"; };
+		3F8E5C452962CF050017C4C2 /* TXError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXError.swift; sourceTree = "<group>"; };
 		3F8EE3A3295C2BF100EFDC05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F9C03EC295D860E0031E928 /* TXAssetsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAssetsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3F9C03EE295D861D0031E928 /* TXAssetsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAssetsRequest.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 		3FCC7A9D2958417F001E353F /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3F8E5C452962CF050017C4C2 /* TXError.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				3F39779E295C400E008F83CC /* TXRepositoryProtocol.swift in Sources */,
 				3FCC7A512954CD13001E353F /* AppDelegate.swift in Sources */,
 				3FA374B82959B93800F6BA81 /* TXImageButton.swift in Sources */,
+				3F8E5C462962CF050017C4C2 /* TXError.swift in Sources */,
 				3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */,
 				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
 				3FCC7A9429583FB9001E353F /* TXView.swift in Sources */,

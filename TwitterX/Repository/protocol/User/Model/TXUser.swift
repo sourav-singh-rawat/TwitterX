@@ -12,7 +12,7 @@ struct TXUser {
     var profileImage: UIImage?
     let profileImageUrl: String
     let email: String
-    let password: String
+    var password: String?
     let fullname: String
     let username: String
 }

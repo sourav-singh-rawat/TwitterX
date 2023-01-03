@@ -39,6 +39,7 @@ class RegistrationController: UIViewController {
                 withTag: 0,
                 placeholder: "Email"
             )
+            inputField.controllerDelegate = self
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "mail"),
@@ -54,6 +55,7 @@ class RegistrationController: UIViewController {
                 placeholder: "Password"
             )
             inputField.isSecureTextEntry = true
+            inputField.controllerDelegate = self
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "ic_lock_outline_white_2x"),
@@ -68,6 +70,7 @@ class RegistrationController: UIViewController {
                 withTag: 2,
                 placeholder: "Full Name"
             )
+            inputField.controllerDelegate = self
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "ic_person_outline_white_2x"),
@@ -82,6 +85,7 @@ class RegistrationController: UIViewController {
                 withTag: 3,
                 placeholder: "Username"
             )
+            inputField.controllerDelegate = self
             
             let field = TXTextInputField(
                 withImage: UIImage(named: "ic_person_outline_white_2x"),
@@ -162,16 +166,16 @@ class RegistrationController: UIViewController {
             //TODO: show toast
             fatalError("Select Profile image")
         }
-        if email != nil {
+        if email == nil {
             fatalError("Enter email")
         }
-        if password != nil {
+        if password == nil {
             fatalError("Enter password")
         }
-        if fullname != nil {
+        if fullname == nil {
             fatalError("Enter fullname")
         }
-        if username != nil {
+        if username == nil {
             fatalError("Enter username")
         }
         
@@ -184,8 +188,15 @@ class RegistrationController: UIViewController {
         if isFormVerified {
             userRepository.createUser(
                 with: TXCreateUserRequest(
-                    email: email!,
-                    password: password!
+                    user: TXUser(
+                        uid: "",
+                        profileImage: profileImage,
+                        profileImageUrl: "",
+                        email: email!,
+                        password: password!,
+                        fullname: fullname!,
+                        username: username!
+                    )
                 )
             )
         }
@@ -283,4 +294,15 @@ extension RegistrationController: TXTextFieldDelegate {
     private func onUsernameChanged(_ text:String?){
         username = text
     }
+}
+
+extension RegistrationController: TXUserRepositoryDelegate {
+    func didCreateUserSuccess(response: TXCreateUserSuccess) {
+        print(response.user.uid)
+    }
+    
+    func didCreateUserFailed(response: TXCreateUserFailure) {
+        print(response.message)
+    }
+    
 }

@@ -9,6 +9,7 @@
 
 protocol TXUserRepositoryProtocol: TXRepositoryProtocol {
     func createUser(with request: TXCreateUserRequest)
+    func addUserDetails(with request: TXAddUserDetailsRequest)
 }
 
 //MARK: - Delegate
@@ -16,14 +17,23 @@ protocol TXUserRepositoryProtocol: TXRepositoryProtocol {
 protocol TXUserRepositoryDelegate {
     func didCreateUserSuccess(response: TXCreateUserSuccess)
     func didCreateUserFailed(response: TXCreateUserFailure)
+    
+    func didAddUserDetailsSuccess(response: TXAddUserDetailsSuccess)
+    func didAddUserDetailsFailed(response: TXAddUserDetailsFailure)
 }
 
 extension TXUserRepositoryDelegate {
     func didCreateUserSuccess(response: TXCreateUserSuccess) {
         
     }
-    
     func didCreateUserFailed(response: TXCreateUserFailure) {
+        
+    }
+    
+    func didAddUserDetailsSuccess(response: TXAddUserDetailsSuccess){
+        
+    }
+    func didAddUserDetailsFailed(response: TXAddUserDetailsFailure){
         
     }
 }

@@ -8,13 +8,15 @@
 import UIKit
 import FirebaseStorage
 
+typealias UploadImageCompletion = ((Result<String,TXError>)->Void)
+
 struct TXAssetsRepository: TXAssetsRepositoryProtocol {
-    let tag: String
     
     var delegate: TXAssetsRepositoryDelegate?
     
     private let storageRef = Storage.storage().reference()
     
+    var uploadImageCompletion: UploadImageCompletion?
     func uploadImage(with request: TXUploadImageRequest) {
         let payload = request.toPayload()
         
@@ -26,23 +28,31 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
         
         let val = storageLocationRef.putData(image,metadata: metaData) { metaDataResult, error in
             if error != nil {
+                
+                let _error = TXError(localizedDescription: error?.localizedDescription ?? "Failed to upload image")
+                
                 delegate?.didUploadImageFailure(
-                    tag: self.tag,
                     response: TXUploadImageFailure(
-                        message: error?.localizedDescription ?? "Failed to upload image"
+                        message: _error.localizedDescription
                     )
                 )
+                
+                uploadImageCompletion?(.failure(_error))
                 return
             }
             
             storageLocationRef.downloadURL { url, error in
                 if error != nil {
+                    
+                    let _error = TXError(localizedDescription: error?.localizedDescription ?? "Server failure while image uploading")
+                    
                     delegate?.didUploadImageFailure(
-                        tag: self.tag,
                         response: TXUploadImageFailure(
-                            message: error?.localizedDescription ?? "Server failure"
+                            message: _error.localizedDescription
                         )
                     )
+                    
+                    uploadImageCompletion?(.failure(_error))
                     return
                 }
                 
@@ -52,9 +62,10 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
                 }
                 
                 delegate?.didUploadImageSuccess(
-                    tag: self.tag,
                     response: TXUploadImageSuccess(imageUrl: url.absoluteString)
                 )
+                
+                uploadImageCompletion?(.success(url.absoluteString))
             }
         }
     }

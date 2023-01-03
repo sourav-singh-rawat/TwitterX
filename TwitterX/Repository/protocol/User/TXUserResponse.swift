@@ -26,13 +26,13 @@ struct TXCreateUserFailure: TXUserFailureProtocol {
     var message: String
 }
 
-struct TXUpdateUserDetailsSuccess: TXUserSuccessProtocol {
+struct TXAddUserDetailsSuccess: TXUserSuccessProtocol {
     var message: String?
     let user: TXUser
 }
 
 
-struct TXCUpdateUserDetailsFailure: TXUserFailureProtocol {
+struct TXAddUserDetailsFailure: TXUserFailureProtocol {
     var statusCode: String?
     var message: String
 }
