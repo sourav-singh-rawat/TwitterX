@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class RegistrationController: UIViewController {
+class RegistrationController: TXViewController {
     
     //MARK: - Properties
     
@@ -163,20 +163,24 @@ class RegistrationController: UIViewController {
     
     private func verifyForm() -> Bool {
         if profileImage == nil {
-            //TODO: show toast
-            fatalError("Select Profile image")
+            showToast(message:"Select Profile image")
+            return false
         }
         if email == nil {
-            fatalError("Enter email")
+            showToast(message:"Enter email")
+            return false
         }
         if password == nil {
-            fatalError("Enter password")
+            showToast(message:"Enter password")
+            return false
         }
         if fullname == nil {
-            fatalError("Enter fullname")
+            showToast(message:"Enter fullname")
+            return false
         }
         if username == nil {
-            fatalError("Enter username")
+            showToast(message:"Enter username")
+            return false
         }
         
         return true
@@ -186,18 +190,21 @@ class RegistrationController: UIViewController {
         let isFormVerified = verifyForm()
         
         if isFormVerified {
-            userRepository.createUser(
-                with: TXCreateUserRequest(
-                    user: TXUser(
-                        uid: "",
-                        profileImage: profileImage,
-                        profileImageUrl: "",
-                        email: email!,
-                        password: password!,
-                        fullname: fullname!,
-                        username: username!
-                    )
+            
+            let request = TXCreateUserRequest(
+                user: TXUser(
+                    uid: "",
+                    profileImage: profileImage,
+                    profileImageUrl: "",
+                    email: email!,
+                    password: password!,
+                    fullname: fullname!,
+                    username: username!
                 )
+            )
+            
+            userRepository.createUser(
+                with: request
             )
         }
     }
@@ -302,7 +309,7 @@ extension RegistrationController: TXUserRepositoryDelegate {
     }
     
     func didCreateUserFailed(response: TXCreateUserFailure) {
-        print(response.message)
+        showToast(message:response.message)
     }
     
 }
