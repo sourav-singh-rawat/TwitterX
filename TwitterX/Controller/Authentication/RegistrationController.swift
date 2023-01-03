@@ -20,7 +20,9 @@ class RegistrationController: TXViewController {
     
     private var media: TXMedia?
     
-    private var userRepository = TXUserRepository()
+    private let userRepository = TXUserRepository()
+    
+    private let toastBottomMargin = 12
     
     private lazy var addPhotoFieldView: TXImageButton = {
         let btn = TXImageButton(
@@ -152,6 +154,8 @@ class RegistrationController: TXViewController {
         media = TXMedia(navigationController: navigationController! as! TXNavigationController)
         media?.delegate = self
         
+        userRepository.delegate = self
+        
         configureUI()
     }
     
@@ -163,23 +167,23 @@ class RegistrationController: TXViewController {
     
     private func verifyForm() -> Bool {
         if profileImage == nil {
-            showToast(message:"Select Profile image")
+            _showToast(message:"Select Profile image")
             return false
         }
         if email == nil {
-            showToast(message:"Enter email")
+            _showToast(message:"Enter email")
             return false
         }
         if password == nil {
-            showToast(message:"Enter password")
+            _showToast(message:"Enter password")
             return false
         }
         if fullname == nil {
-            showToast(message:"Enter fullname")
+            _showToast(message:"Enter fullname")
             return false
         }
         if username == nil {
-            showToast(message:"Enter username")
+            _showToast(message:"Enter username")
             return false
         }
         
@@ -246,6 +250,10 @@ class RegistrationController: TXViewController {
         )
     }
     
+    private func _showToast(message: String) {
+        showToast(message: message,withBottomInset: 32)
+    }
+    
 }
 
 //MARK: - TXMediaDelegate
@@ -309,7 +317,7 @@ extension RegistrationController: TXUserRepositoryDelegate {
     }
     
     func didCreateUserFailed(response: TXCreateUserFailure) {
-        showToast(message:response.message)
+        _showToast(message:response.message)
     }
     
 }

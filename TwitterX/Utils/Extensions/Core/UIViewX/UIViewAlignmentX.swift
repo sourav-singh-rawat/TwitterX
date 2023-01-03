@@ -131,7 +131,20 @@ extension UIView {
                 withSafeAreaProtected: safeAreaProtected
             )
             break
-            
+        case .horizontalyCenter:
+            self.centerXAnchor.constraint(
+                equalTo: safeAreaProtected
+                ?view.safeAreaLayoutGuide.centerXAnchor
+                :view.centerXAnchor
+            ).isActive = true
+            break
+        case .verticalyCenter:
+            self.centerYAnchor.constraint(
+                equalTo: safeAreaProtected
+                ?view.safeAreaLayoutGuide.centerYAnchor
+                :view.centerYAnchor
+            ).isActive = true
+            break
         }
     }
 }
@@ -146,4 +159,6 @@ enum TXAlignment {
     case bottomLeft
     case bottomCenter
     case bottomRight
+    case horizontalyCenter
+    case verticalyCenter
 }

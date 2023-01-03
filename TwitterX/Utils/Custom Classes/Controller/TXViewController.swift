@@ -8,25 +8,55 @@
 import UIKit
 
 class TXViewController: UIViewController {
-    func showToast(message : String, font: UIFont = .systemFont(ofSize: 12.0)) {
+    func showToast(
+        message : String,
+        font: UIFont = .systemFont(ofSize: 16.0),
+        withBottomInset bottomInset: CGFloat = 0
+    ) {
 
-        let toastLabel = UILabel(
-            frame: CGRect(
-                x: self.view.frame.size.width/2 - 75,
-                y: self.view.frame.size.height-100,
-                width: 150,
-                height: 35
+        let toastLabel:TXView = {
+            let view = TXView()
+            view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            view.layer.cornerRadius = 10;
+            view.clipsToBounds  =  true
+            
+            let label = TXLabel()
+            label.textColor = UIColor.white
+            label.font = font
+            label.textAlignment = .center;
+            label.text = message
+            label.alpha = 1.0
+            label.lineBreakMode = .byWordWrapping
+            label.numberOfLines = 0
+            
+            view.addSubview(label)
+            view.maxWidth(self.view.frame.width/1.2)
+            label.position(
+                in: view,
+                withInsets: TXEdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 8
+                )
             )
-        )
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center;
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
+            
+            return view
+        }()
+        
+        
         self.view.addSubview(toastLabel)
+        toastLabel.alignment(
+            to: self.view,
+            alignment: .horizontalyCenter,
+            withSafeAreaPortected: true
+        )
+        toastLabel.position(
+            in: self.view,
+            withInsets: TXEdgeInsets.only(
+                bottom: bottomInset
+            ),
+            withSafeAreaProtected: true
+        )
+        
         UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
              toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in

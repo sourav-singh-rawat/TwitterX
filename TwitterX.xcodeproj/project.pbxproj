@@ -22,6 +22,7 @@
 		3F9C03EF295D861D0031E928 /* TXAssetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03EE295D861D0031E928 /* TXAssetsRequest.swift */; };
 		3F9C03F1295D86270031E928 /* TXAssetsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03F0295D86270031E928 /* TXAssetsResponse.swift */; };
 		3F9C03F5295D8B110031E928 /* TXAssetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03F4295D8B110031E928 /* TXAssetsRepository.swift */; };
+		3F9FA84C2963DE1500CD7AB9 /* TXLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9FA84B2963DE1500CD7AB9 /* TXLabel.swift */; };
 		3FA374B82959B93800F6BA81 /* TXImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA374B72959B93800F6BA81 /* TXImageButton.swift */; };
 		3FAB19B42958BB4600D535CB /* TXTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB19B32958BB4600D535CB /* TXTextButton.swift */; };
 		3FC5A0FF295CAAC800BE5283 /* TXUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5A0FE295CAAC800BE5283 /* TXUserRepository.swift */; };
@@ -77,6 +78,7 @@
 		3F9C03EE295D861D0031E928 /* TXAssetsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAssetsRequest.swift; sourceTree = "<group>"; };
 		3F9C03F0295D86270031E928 /* TXAssetsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAssetsResponse.swift; sourceTree = "<group>"; };
 		3F9C03F4295D8B110031E928 /* TXAssetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAssetsRepository.swift; sourceTree = "<group>"; };
+		3F9FA84B2963DE1500CD7AB9 /* TXLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXLabel.swift; sourceTree = "<group>"; };
 		3FA374B72959B93800F6BA81 /* TXImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImageButton.swift; sourceTree = "<group>"; };
 		3FAB19B32958BB4600D535CB /* TXTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTextButton.swift; sourceTree = "<group>"; };
 		3FC5A0FE295CAAC800BE5283 /* TXUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUserRepository.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				3FCC7A9929584070001E353F /* TXImageView.swift */,
 				3FCC7A9B295840A0001E353F /* TXTextField.swift */,
 				3FCC7AA2295854D9001E353F /* TXStackView.swift */,
+				3F9FA84B2963DE1500CD7AB9 /* TXLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				3FCC7A7829554FE8001E353F /* TXViewControllerX.swift in Sources */,
 				3FE1FF60295C3A1800A39720 /* TXUserRepositoryProtocol.swift in Sources */,
 				3FCC7A7A2955A128001E353F /* UIViewX.swift in Sources */,
+				3F9FA84C2963DE1500CD7AB9 /* TXLabel.swift in Sources */,
 				3F9C03ED295D860E0031E928 /* TXAssetsRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

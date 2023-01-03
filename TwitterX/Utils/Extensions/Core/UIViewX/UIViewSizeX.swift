@@ -19,4 +19,28 @@ extension UIView {
         
         self.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
+    
+    func maxWidth(_ maxWidth: CGFloat){
+        enableAutoResizing()
+        
+        self.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth).isActive = true
+    }
+    
+    func maxHeight(_ maxHeight: CGFloat){
+        enableAutoResizing()
+        
+        self.heightAnchor.constraint(lessThanOrEqualToConstant: maxHeight).isActive = true
+    }
+    
+    func minWidth(_ minWidth: CGFloat){
+        enableAutoResizing()
+        
+        self.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth).isActive = true
+    }
+    
+    func minHeight(_ minHeight: CGFloat){
+        enableAutoResizing()
+        
+        self.heightAnchor.constraint(greaterThanOrEqualToConstant: minHeight).isActive = true
+    }
 }
