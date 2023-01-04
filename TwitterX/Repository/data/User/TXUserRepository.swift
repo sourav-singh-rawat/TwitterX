@@ -97,11 +97,13 @@ class TXUserRepository: TXUserRepositoryProtocol {
             .collection("Users")
             .document(request.user.uid)
             .setData(request.toPayload()) { error in
-                completion(.failure(
-                    TXAddUserDetailsFailure(
-                        localizedDescription: error?.localizedDescription ?? "Failed to add user details"
-                    )
-                ))
+                if error != nil {
+                    completion(.failure(
+                        TXAddUserDetailsFailure(
+                            localizedDescription: error?.localizedDescription ?? "Failed to add user details"
+                        )
+                    ))
+                }
             }
         
         completion(.success(TXAddUserDetailsSuccess(user: request.user)))
