@@ -17,6 +17,7 @@ class RegistrationController: TXViewController {
     private var password: String?
     private var fullname: String?
     private var username: String?
+    private var signupButtonRef: TXActionButton?
     
     private var media: TXMedia?
     
@@ -116,6 +117,8 @@ class RegistrationController: TXViewController {
         stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(signupButton)
         
+        self.signupButtonRef = signupButton
+        
         return stackView
     }()
     
@@ -193,6 +196,8 @@ class RegistrationController: TXViewController {
         
         if isFormVerified {
             
+            signupButtonRef?.isLoading = true
+            
             let request = TXCreateUserRequest(
                 user: TXUser(
                     uid: "",
@@ -214,6 +219,8 @@ class RegistrationController: TXViewController {
                     self?._showToast(message: response.localizedDescription)
                     break
                 }
+                
+                self?.signupButtonRef?.isLoading = false
             }
         }
     }

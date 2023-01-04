@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */; };
 		3F0CE25E295CB3C600E7BAFE /* TXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CE25D295CB3C600E7BAFE /* TXUser.swift */; };
+		3F0F824429659766003612E4 /* TXActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */; };
 		3F0F9E0D295ABE4200DDE7D9 /* TXMediaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */; };
 		3F0F9E0F295ABED700DDE7D9 /* TXMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */; };
 		3F39779A295C3FB4008F83CC /* TXUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F397799295C3FB4008F83CC /* TXUserRequest.swift */; };
@@ -65,6 +66,7 @@
 		00DC2B976801175EA9297043 /* Pods_TwitterX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImagePickerController.swift; sourceTree = "<group>"; };
 		3F0CE25D295CB3C600E7BAFE /* TXUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUser.swift; sourceTree = "<group>"; };
+		3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXMediaProtocol.swift; sourceTree = "<group>"; };
 		3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXMedia.swift; sourceTree = "<group>"; };
 		3F397799295C3FB4008F83CC /* TXUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUserRequest.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				3FCC7A9B295840A0001E353F /* TXTextField.swift */,
 				3FCC7AA2295854D9001E353F /* TXStackView.swift */,
 				3F9FA84B2963DE1500CD7AB9 /* TXLabel.swift */,
+				3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0CE25E295CB3C600E7BAFE /* TXUser.swift in Sources */,
+				3F0F824429659766003612E4 /* TXActivityIndicatorView.swift in Sources */,
 				3FCC7A822955C09F001E353F /* LoginController.swift in Sources */,
 				3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */,
 				3FCC7A9629583FE8001E353F /* TXViewController.swift in Sources */,
