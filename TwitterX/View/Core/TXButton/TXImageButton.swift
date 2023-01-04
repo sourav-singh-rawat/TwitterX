@@ -24,8 +24,7 @@ class TXImageButton: TXButton {
         setImage(image, for: .normal)
         imageView?.contentMode = .scaleAspectFit
         clipsToBounds = true
-        //TODO: on color theme
-        tintColor = .white
+        tintColor = TXTheme.shared.color.onPrimary
         
         self.width(width)
         self.height(height)

@@ -24,12 +24,10 @@ class TXActionButton: TXButton {
         
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        //TODO: on color theme
-        setTitleColor(.twitterBlue, for: .normal)
-        backgroundColor = .white
+        setTitleColor(TXTheme.shared.color.primary, for: .normal)
+        backgroundColor = TXTheme.shared.color.onPrimary
         layer.cornerRadius = 5
         
-        //TODO: on color theme
         activityIndicator.hidesWhenStopped = true
         
         self.height(height)

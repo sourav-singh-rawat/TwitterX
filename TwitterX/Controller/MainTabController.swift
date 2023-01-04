@@ -15,8 +15,8 @@ class MainTabController: TXTabBarController {
         let btn = TXButton(
             onPressed: onFloatingBtnPressed
         )
-        btn.tintColor = .white
-        btn.backgroundColor = .twitterBlue
+        btn.tintColor = TXTheme.shared.color.onPrimary
+        btn.backgroundColor = TXTheme.shared.color.primary
         btn.setImage(UIImage(named: "new_tweet"), for: .normal)
     
         btn.width(56)

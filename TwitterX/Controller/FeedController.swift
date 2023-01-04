@@ -24,7 +24,7 @@ class FeedController: TXViewController {
     //MARK: - Helper
     
     private func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = TXTheme.shared.color.background
         
         let imageView = TXImageView(image: UIImage(named: "twitter_logo_blue"))
         

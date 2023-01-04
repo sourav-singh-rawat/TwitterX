@@ -11,8 +11,7 @@ class TXActivityIndicatorView: UIActivityIndicatorView {
     required init() {
         super.init(frame: .zero)
 
-        //TODO: Theme
-        color = .twitterBlue
+        color = TXTheme.shared.color.primary
     }
     
     required init(coder: NSCoder) {

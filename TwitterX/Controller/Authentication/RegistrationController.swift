@@ -127,7 +127,7 @@ class RegistrationController: TXViewController {
             string: "Already have an account? ",
             attributes: [
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: TXTheme.shared.color.onPrimary
             ]
         )
         
@@ -136,7 +136,7 @@ class RegistrationController: TXViewController {
                 string: "Log In",
                 attributes: [
                     NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                    NSAttributedString.Key.foregroundColor: UIColor.white
+                    NSAttributedString.Key.foregroundColor: TXTheme.shared.color.onPrimary
                 ]
             )
         )
@@ -234,7 +234,7 @@ class RegistrationController: TXViewController {
     //MARK: - Helper
     
     private func configureUI(){
-        view.backgroundColor = .twitterBlue
+        view.backgroundColor = TXTheme.shared.color.primary
         
         view.addSubview(addPhotoFieldView)
         addPhotoFieldView.alignment(

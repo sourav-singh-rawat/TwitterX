@@ -18,7 +18,7 @@ class TXTextField: UITextField, UITextFieldDelegate {
         super.init(frame: .zero)
         delegate = self
         
-        textColor = .white
+        textColor = TXTheme.shared.color.onPrimary
         
         self.tag = tag
         
@@ -27,7 +27,7 @@ class TXTextField: UITextField, UITextFieldDelegate {
         if(placeholder != nil){
             attributedPlaceholder = NSAttributedString(
                 string: placeholder!,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+                attributes: [NSAttributedString.Key.foregroundColor: TXTheme.shared.color.onPrimary]
             )
         }
         

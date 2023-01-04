@@ -85,7 +85,7 @@ class LoginController: TXViewController {
             string: "Don't have an account? ",
             attributes: [
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: TXTheme.shared.color.onPrimary
             ]
         )
         
@@ -94,15 +94,15 @@ class LoginController: TXViewController {
                 string: "Sign Up",
                 attributes: [
                     NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                    NSAttributedString.Key.foregroundColor: UIColor.white
+                    NSAttributedString.Key.foregroundColor: TXTheme.shared.color.onPrimary
                 ]
             )
         )
         
-       let btn = TXTextButton(
-        attributedTitle: attributedTitle,
-        onPressed: onSignUpPressed
-       )
+        let btn = TXTextButton(
+            attributedTitle: attributedTitle,
+            onPressed: onSignUpPressed
+        )
         
         return btn
     }()
@@ -112,7 +112,7 @@ class LoginController: TXViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .twitterBlue
+        view.backgroundColor = TXTheme.shared.color.primary
         
         navigationController?.navigationBar.isHidden = true
         //nav bar content become white

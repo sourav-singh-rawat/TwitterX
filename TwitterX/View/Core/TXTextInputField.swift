@@ -13,7 +13,7 @@ class TXTextInputField: TXView {
     let dividerView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .white
+        view.backgroundColor = TXTheme.shared.color.onPrimary
         view.height(1)
         
         return view

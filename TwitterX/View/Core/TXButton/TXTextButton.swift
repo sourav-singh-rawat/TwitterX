@@ -16,8 +16,7 @@ class TXTextButton: TXButton {
         super.init(onPressed: onPressed)
         
         setTitle(title, for: .normal)
-        //TODO: theme
-        setTitleColor(.white, for: .normal)
+        setTitleColor(TXTheme.shared.color.primary, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 16)
     }
     

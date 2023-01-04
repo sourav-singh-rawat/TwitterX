@@ -24,7 +24,7 @@ class ConversationsController: TXViewController {
     //MARK: - Helper
     
     private func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = TXTheme.shared.color.background
         
         navigationItem.title = "Messages"
     }

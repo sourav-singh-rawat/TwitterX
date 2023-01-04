@@ -17,8 +17,7 @@ class TXImageView: UIImageView {
         
         self.image = image
         contentMode = .scaleAspectFit
-        //TODO: on theme
-        tintColor = .white
+        tintColor = TXTheme.shared.color.onPrimary
         
         self.height(height)
         self.width(width)
