@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3F005F322965D30500F2E53B /* NotificationCenterX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F312965D30500F2E53B /* NotificationCenterX.swift */; };
+		3F005F342965D7CD00F2E53B /* TXAuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F332965D7CD00F2E53B /* TXAuthProtocol.swift */; };
+		3F005F362965D7D900F2E53B /* TXAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F352965D7D900F2E53B /* TXAuth.swift */; };
 		3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */; };
 		3F0CE25E295CB3C600E7BAFE /* TXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CE25D295CB3C600E7BAFE /* TXUser.swift */; };
 		3F0F824429659766003612E4 /* TXActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */; };
@@ -70,6 +72,8 @@
 /* Begin PBXFileReference section */
 		00DC2B976801175EA9297043 /* Pods_TwitterX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F005F312965D30500F2E53B /* NotificationCenterX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterX.swift; sourceTree = "<group>"; };
+		3F005F332965D7CD00F2E53B /* TXAuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAuthProtocol.swift; sourceTree = "<group>"; };
+		3F005F352965D7D900F2E53B /* TXAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXAuth.swift; sourceTree = "<group>"; };
 		3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImagePickerController.swift; sourceTree = "<group>"; };
 		3F0CE25D295CB3C600E7BAFE /* TXUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUser.swift; sourceTree = "<group>"; };
 		3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 			children = (
 				3F0F9E0C295ABE4200DDE7D9 /* TXMediaProtocol.swift */,
 				3FDF5C3A2965B7AE0061D173 /* TXThemeProtocol */,
+				3F005F332965D7CD00F2E53B /* TXAuthProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 			children = (
 				3F0F9E0E295ABED700DDE7D9 /* TXMedia.swift */,
 				3FDF5C3B2965B7C70061D173 /* TXTheme */,
+				3F005F352965D7D900F2E53B /* TXAuth.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -657,6 +663,7 @@
 				3FDF5C362965AFFE0061D173 /* TXThemeProtocol.swift in Sources */,
 				3F8E5C462962CF050017C4C2 /* TXError.swift in Sources */,
 				3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */,
+				3F005F362965D7D900F2E53B /* TXAuth.swift in Sources */,
 				3FCC7A6F29554AE9001E353F /* ExploreController.swift in Sources */,
 				3FCC7A9429583FB9001E353F /* TXView.swift in Sources */,
 				3F0F9E0F295ABED700DDE7D9 /* TXMedia.swift in Sources */,
@@ -677,6 +684,7 @@
 				3FCC7AA529585607001E353F /* TXNavigationController.swift in Sources */,
 				3FDF5C3F2965B8020061D173 /* TXThemeColor.swift in Sources */,
 				3FD1F9142963D2F000B6387F /* ImageAssets.swift in Sources */,
+				3F005F342965D7CD00F2E53B /* TXAuthProtocol.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3F9C03F5295D8B110031E928 /* TXAssetsRepository.swift in Sources */,
 				3F005F322965D30500F2E53B /* NotificationCenterX.swift in Sources */,
