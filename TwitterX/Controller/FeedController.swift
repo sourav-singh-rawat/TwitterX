@@ -11,6 +11,11 @@ class FeedController: TXViewController {
     
     //MARK: - Properties
     
+    let logoImageView = TXImageView(
+        image: UIImage(named: "twitter_logo_blue"),
+        width: 44,
+        height: 44
+    )
     
     
     //MARK: - Lifecycle
@@ -26,9 +31,7 @@ class FeedController: TXViewController {
     private func configureUI() {
         view.backgroundColor = TXTheme.shared.color.background
         
-        let imageView = TXImageView(image: UIImage(named: "twitter_logo_blue"))
-        
-        navigationItem.titleView = imageView
+        navigationItem.titleView = logoImageView
     }
     
 }
