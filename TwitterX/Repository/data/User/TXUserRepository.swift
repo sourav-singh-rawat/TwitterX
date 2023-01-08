@@ -37,7 +37,7 @@ class TXUserRepository: TXUserRepositoryProtocol {
             
             guard let uuid = result?.user.uid else {
                 
-                assertionFailure("user uid not resived")
+                assertionFailure("user uid not recived")
                 
                 return
             }
@@ -65,9 +65,11 @@ class TXUserRepository: TXUserRepositoryProtocol {
                                 )
                             )) { result in
                                 switch result {
-                                case .success(let response):
+                                case .success(_):
+                                    TXAuth.shared.onLogin(uuid: uuid)
+                                    
                                     completion(.success(
-                                        TXCreateUserSuccess(user: response.user)
+                                        TXCreateUserSuccess()
                                     ))
                                     break
                                 case .failure(let response):
@@ -109,11 +111,22 @@ class TXUserRepository: TXUserRepositoryProtocol {
         completion(.success(TXAddUserDetailsSuccess(user: request.user)))
     }
     
+    func verifyLoginCreds(with request: TXVerifyLoginCredsRequest,completion: @escaping VerifyLoginCredsCompletion) {
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            completion(.success(TXVerifyLoginCredsSuccess(uuid: user!.uid)))
+        }else {
+            completion(.failure(TXVerifyLoginCredsFailure(localizedDescription: "User is not loged in")))
+        }
+    }
+    
     func loginUser(with request: TXLoginUserRequest,completion: @escaping LoginUserCompletion) {
         Auth.auth().signIn(
             withEmail: request.email,
             password: request.password
-        ) { [weak self] result, error in
+        ) {
+            result, error in
             if result == nil || error != nil {
                 completion(.failure(
                     TXLoginUserFailure(
@@ -124,25 +137,11 @@ class TXUserRepository: TXUserRepositoryProtocol {
             
             guard let uuid = result?.user.uid else { return }
             
-            self?.getUserDetails(
-                with: TXGetUserDetailsRequest(uuid: uuid),
-                completion: { result in
-                    switch result {
-                    case .success(let response):
-                        completion(.success(
-                            TXLoginUserSuccess(user: response.user)
-                        ))
-                        break
-                    case .failure(let response):
-                        completion(.failure(
-                            TXLoginUserFailure(
-                                localizedDescription: response.localizedDescription
-                            )
-                        ))
-                        break
-                    }
-                }
-            )
+            TXAuth.shared.onLogin(uuid: uuid)
+            
+            completion(.success(
+                TXLoginUserSuccess()
+            ))
         }
     }
     
@@ -181,5 +180,17 @@ class TXUserRepository: TXUserRepositoryProtocol {
                     ))
                 }
             }
+    }
+    
+    func logoutUser(with request: TXLogoutUserRequest,completion: @escaping LogoutUserCompletion) {
+        do {
+            try Auth.auth().signOut()
+            
+            TXAuth.shared.onLogout()
+            
+            completion(.success(TXLogoutUserSuccess()))
+        } catch {
+            completion(.failure(TXLogoutUserFailure(localizedDescription: error.localizedDescription)))
+        }
     }
 }

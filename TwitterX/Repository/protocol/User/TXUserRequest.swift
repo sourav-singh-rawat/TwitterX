@@ -29,6 +29,12 @@ struct TXAddUserDetailsRequest: TXRepositoryRequest {
     }
 }
 
+struct TXVerifyLoginCredsRequest: TXRepositoryRequest {
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
+}
+
 struct TXLoginUserRequest: TXRepositoryRequest {
     let email: String
     let password: String
@@ -44,5 +50,10 @@ struct TXGetUserDetailsRequest: TXRepositoryRequest {
     func toPayload() -> [String : Any] {
         return [:]
     }
-    
+}
+
+struct TXLogoutUserRequest: TXRepositoryRequest {
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
 }

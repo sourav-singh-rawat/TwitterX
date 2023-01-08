@@ -17,7 +17,6 @@ protocol TXUserSuccessProtocol: TXRepositorySuccessProtocol {
 
 struct TXCreateUserSuccess: TXUserSuccessProtocol {
     var message: String?
-    let user: TXUser
 }
 
 struct TXCreateUserFailure: TXUserFailureProtocol {
@@ -36,9 +35,19 @@ struct TXAddUserDetailsFailure: TXUserFailureProtocol {
     var localizedDescription: String
 }
 
+struct TXVerifyLoginCredsSuccess: TXUserSuccessProtocol {
+    var message: String?
+    var uuid: String
+}
+
+struct TXVerifyLoginCredsFailure: TXUserFailureProtocol {
+    var statusCode: Int?
+    
+    var localizedDescription: String
+}
+
 struct TXLoginUserSuccess: TXUserSuccessProtocol {
     var message: String?
-    var user: TXUser
 }
 
 struct TXLoginUserFailure: TXUserFailureProtocol {
@@ -53,6 +62,16 @@ struct TXGetUserDetailsSuccess: TXUserSuccessProtocol {
 }
 
 struct TXGetUserDetailsFailure: TXUserFailureProtocol {
+    var statusCode: Int?
+    
+    var localizedDescription: String
+}
+
+struct TXLogoutUserSuccess: TXUserSuccessProtocol {
+    var message: String?
+}
+
+struct TXLogoutUserFailure: TXUserFailureProtocol {
     var statusCode: Int?
     
     var localizedDescription: String
