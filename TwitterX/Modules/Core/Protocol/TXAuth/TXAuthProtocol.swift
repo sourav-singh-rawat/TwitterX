@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TXAuthProtocol {
+protocol TXAuthProtocol: TXCoreModulesProtocol {
     var isAuthenticated: Bool { get }
     
     func onLogin(uuid: String)

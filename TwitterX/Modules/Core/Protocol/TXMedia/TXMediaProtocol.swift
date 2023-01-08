@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - Protocol
 
-protocol TXMediaProtocol {
+protocol TXMediaProtocol: TXCoreModulesProtocol {
     func pickImage(
         isEditingAllowed: Bool
     )

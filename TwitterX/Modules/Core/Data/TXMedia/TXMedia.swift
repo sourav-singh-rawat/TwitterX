@@ -8,6 +8,14 @@
 import UIKit
 
 class TXMedia: TXMediaProtocol {
+    func bootUp() {
+        //
+    }
+    
+    func bootDown() {
+        //
+    }
+    
     var delegate: TXMediaDelegate?
     
     private let navigationController: TXNavigationController

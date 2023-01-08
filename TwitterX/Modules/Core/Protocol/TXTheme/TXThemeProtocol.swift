@@ -12,7 +12,7 @@ enum TXThemeType {
     case light
 }
 
-protocol TXThemeProtocol {
+protocol TXThemeProtocol: TXCoreModulesProtocol {
     var currentTheme: TXThemeType { get }
     func changeTheme(to themeType: TXThemeType)
     var color: TXThemeColorProtocol { get }
