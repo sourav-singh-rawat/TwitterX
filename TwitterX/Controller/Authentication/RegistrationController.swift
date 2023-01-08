@@ -212,8 +212,7 @@ class RegistrationController: TXViewController {
             
             userRepository.createUser(with: request) {[weak self] result in
                 switch result {
-                case .success(let response):
-                    print(response.user.uid)
+                case .success(_):
                     break
                 case .failure(let response):
                     self?._showToast(message: response.localizedDescription)

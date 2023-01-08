@@ -44,6 +44,10 @@ class MainTabController: TXTabBarController {
 
     //MARK: - Helper
     
+    private func authenticateUser() {
+        
+    }
+    
     private func configureTabs() {
         let feed = FeedController().wrapWithNavigationController()
         feed.tabBarItem.image = UIImage(named: "home_unselected")

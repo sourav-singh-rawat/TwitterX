@@ -148,8 +148,7 @@ class LoginController: TXViewController {
                     password: password!
                 )) { [weak self] result in
                     switch result {
-                    case .success(let response):
-                        print(response.user.fullname)
+                    case .success(_):
                         break
                     case .failure(let response):
                         self?._showToast(message: response.localizedDescription)

@@ -8,6 +8,9 @@
 import Foundation
 
 extension Notification.Name {
+    static var authStatus: Notification.Name {
+        return .init("AuthStatus")
+    }
     static var themeChange: Notification.Name {
         return .init("ThemeChange")
     }
