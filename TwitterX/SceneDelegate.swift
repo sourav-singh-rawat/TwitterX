@@ -81,7 +81,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (isAuthenticated){
             window.rootViewController = MainTabController()
         }else {
-            window.rootViewController = LoginController()
+            window.rootViewController = TXNavigationController(rootViewController: LoginController())
         }
         
         //animation
