@@ -49,16 +49,20 @@ class MainTabController: TXTabBarController {
     }
     
     private func configureTabs() {
-        let feed = FeedController().wrapWithNavigationController()
+        let feed = TXNavigationController(rootViewController:FeedController())
+        feed.navigationBar.barTintColor = .white
         feed.tabBarItem.image = UIImage(named: "home_unselected")
         
-        let explore = ExploreController().wrapWithNavigationController()
+        let explore = TXNavigationController(rootViewController:ExploreController())
+        explore.navigationBar.barTintColor = .white
         explore.tabBarItem.image = UIImage(named: "search_unselected")
         
-        let notifications = NotificationsController().wrapWithNavigationController()
+        let notifications = TXNavigationController(rootViewController:NotificationsController())
+        notifications.navigationBar.barTintColor = .white
         notifications.tabBarItem.image = UIImage(named: "like_unselected")
         
-        let conversations = ConversationsController().wrapWithNavigationController()
+        let conversations = TXNavigationController(rootViewController:ConversationsController())
+        conversations.navigationBar.barTintColor = .white
         conversations.tabBarItem.image = UIImage(named: "ic_mail_outline_white_2x-1")
         
         viewControllers = [feed, explore, notifications, conversations]

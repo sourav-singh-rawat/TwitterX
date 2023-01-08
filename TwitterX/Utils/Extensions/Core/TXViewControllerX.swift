@@ -9,10 +9,4 @@ import UIKit
 
 extension TXViewController {
     
-    func wrapWithNavigationController() -> TXNavigationController {
-        let navController = TXNavigationController(rootViewController: self)
-        navController.navigationBar.barTintColor = .white
-        
-        return navController
-    }
 }
