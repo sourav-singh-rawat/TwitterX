@@ -23,6 +23,7 @@ class TXAuth: TXAuthProtocol {
                 self?.onLogin(uuid: response.uuid)
                 break
             case .failure(_):
+                self?.onLogout()
                 break
             }
             

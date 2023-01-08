@@ -20,9 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = SplashScreenController()
         window?.makeKeyAndVisible()
         
-        //Bootup process
-        TXCoreModules.shared.bootUp()
-        
         NotificationCenter.default
             .addObserver(
                 self,
@@ -31,6 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 object: nil
             )
         
+        //Bootup process
+        TXCoreModules.shared.bootUp()
+
 //        NotificationCenter.default
 //            .addObserver(
 //                self,
