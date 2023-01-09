@@ -10,7 +10,7 @@ import UIKit
 extension UINavigationBar {
     func addBottomSeprator(){
         let line = TXView()
-        line.height(1)
+        line.height(0.6)
         line.backgroundColor = TXTheme.shared.color.navBarSeprater
         
         line.width(TXScreenSize.width)
