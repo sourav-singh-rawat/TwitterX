@@ -40,6 +40,19 @@ class UploadTweetController: UIViewController {
         return btn
     }()
     
+    private let profileImageView: TXImageView = {
+        let imgView = TXImageView(
+            imageUrl: TXAuth.shared.currentUser!.profileImageUrl,
+            width: 48,
+            height: 48
+        )
+        imgView.layer.cornerRadius = 48/2
+        imgView.layer.masksToBounds = true
+        imgView.clipsToBounds = true
+        imgView.backgroundColor = TXTheme.shared.color.primary
+        
+        return imgView
+    }()
     
     //MARK: - Lifecycle
     
@@ -65,6 +78,8 @@ class UploadTweetController: UIViewController {
         view.backgroundColor = TXTheme.shared.color.background
         
         configureNavBar()
+        
+        configureMainView()
     }
     
     private func configureNavBar() {
@@ -76,4 +91,16 @@ class UploadTweetController: UIViewController {
         navigationItem.rightBarButtonItem = tweetActionButton
     }
     
+    private func configureMainView() {
+        view.addSubview(profileImageView)
+        
+        profileImageView.position(
+            in: self.view,
+            withInsets: TXEdgeInsets.only(
+                left: 16,
+                top: 16
+            ),
+            withSafeAreaProtected: true
+        )
+    }
 }
