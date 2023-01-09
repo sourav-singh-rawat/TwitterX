@@ -44,9 +44,18 @@ class FeedController: TXViewController {
     private func configureUI() {
         view.backgroundColor = TXTheme.shared.color.background
         
+        configureNavBar()
+        
+        configureMainView()
+    }
+    
+    private func configureNavBar() {
         navigationItem.titleView = logoImageView
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
     
+    private func configureMainView() {
+        
+    }
 }
