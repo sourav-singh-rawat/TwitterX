@@ -16,12 +16,12 @@ class TXViewController: UIViewController {
 
         let toastLabel:TXView = {
             let view = TXView()
-            view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            view.backgroundColor = TXTheme.shared.color.toast
             view.layer.cornerRadius = 10;
             view.clipsToBounds  =  true
             
             let label = TXLabel()
-            label.textColor = UIColor.white
+            label.textColor = TXTheme.shared.color.onToast
             label.font = font
             label.textAlignment = .center;
             label.text = message

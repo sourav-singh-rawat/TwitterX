@@ -50,6 +50,8 @@ class FeedController: TXViewController {
     }
     
     private func configureNavBar() {
+        navigationController?.navigationBar.addBottomSeprator()
+        
         navigationItem.titleView = logoImageView
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)

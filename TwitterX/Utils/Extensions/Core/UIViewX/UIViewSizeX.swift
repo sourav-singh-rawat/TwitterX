@@ -43,4 +43,16 @@ extension UIView {
         
         self.heightAnchor.constraint(greaterThanOrEqualToConstant: minHeight).isActive = true
     }
+    
+    func matchWidth(_ view: UIView){
+        enableAutoResizing()
+        
+        self.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    }
+    
+    func matchHeight(_ view: UIView){
+        enableAutoResizing()
+        
+        self.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    }
 }

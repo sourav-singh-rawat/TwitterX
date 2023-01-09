@@ -39,7 +39,8 @@ class MainTabController: TXTabBarController {
     //MARK: - Selector
     
     private func onFloatingBtnPressed() {
-        print("123")
+        let nav = TXNavigationController(rootViewController: UploadTweetController())
+        present(nav, animated: true,completion: nil)
     }
 
     //MARK: - Helper
