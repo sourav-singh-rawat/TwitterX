@@ -12,7 +12,7 @@ class FeedController: TXViewController {
     //MARK: - Properties
     
     let logoImageView = TXImageView(
-        image: UIImage(named: "twitter_logo_blue"),
+        image: UIImage(named: TXImageAsset.twitterLogoBlue),
         width: 44,
         height: 44
     )

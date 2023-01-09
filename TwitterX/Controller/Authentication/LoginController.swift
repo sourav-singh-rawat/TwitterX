@@ -19,7 +19,7 @@ class LoginController: TXViewController {
     
     private let logoImageView: TXImageView = {
         let imgView = TXImageView(
-            image: UIImage(named: ImageAsset.twitterLogo),
+            image: UIImage(named: TXImageAsset.twitterLogo),
             width: 150,
             height: 150
         )
@@ -37,7 +37,7 @@ class LoginController: TXViewController {
             textField.controllerDelegate = self
             
             let view = TXTextInputField(
-                withImage: UIImage(named: ImageAsset.mail),
+                withImage: UIImage(named: TXImageAsset.mail),
                 withTextField: textField
             )
             
@@ -53,7 +53,7 @@ class LoginController: TXViewController {
             textField.controllerDelegate = self
             
             let view = TXTextInputField(
-                withImage: UIImage(named: ImageAsset.lock_outline),
+                withImage: UIImage(named: TXImageAsset.lock_outline),
                 withTextField: textField
             )
             

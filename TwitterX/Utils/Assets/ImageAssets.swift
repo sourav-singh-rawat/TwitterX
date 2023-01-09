@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct ImageAsset {
+struct TXImageAsset {
+    static let twitterLogoBlue = "twitter_logo_blue"
     static let twitterLogo = "TwitterLogo"
     static let plus_photo = "plus_photo"
     static let mail = "mail"

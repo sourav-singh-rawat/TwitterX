@@ -15,7 +15,7 @@ class SplashScreenController: UIViewController {
     
     let twitterLogo: TXImageView = {
        let imgView = TXImageView(
-        image: UIImage(named: ImageAsset.twitterLogo),
+        image: UIImage(named: TXImageAsset.twitterLogo),
         width: 150,
         height: 150
        )
