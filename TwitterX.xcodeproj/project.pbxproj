@@ -16,7 +16,8 @@
 		3F005F3E296A66F000F2E53B /* TXCoreModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F3D296A66F000F2E53B /* TXCoreModules.swift */; };
 		3F005F45296BA9D600F2E53B /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F44296BA9D600F2E53B /* UploadTweetController.swift */; };
 		3F005F47296BB43200F2E53B /* UINavigationBarX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F46296BB43200F2E53B /* UINavigationBarX.swift */; };
-		3F005F49296BB89100F2E53B /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F48296BB89100F2E53B /* helper.swift */; };
+		3F005F49296BB89100F2E53B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F48296BB89100F2E53B /* Helper.swift */; };
+		3F005F4E296C190D00F2E53B /* TXMediaCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F005F4D296C190D00F2E53B /* TXMediaCatch.swift */; };
 		3F0A5A49295BE94B000427FD /* TXImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */; };
 		3F0CE25E295CB3C600E7BAFE /* TXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CE25D295CB3C600E7BAFE /* TXUser.swift */; };
 		3F0F824429659766003612E4 /* TXActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */; };
@@ -87,7 +88,8 @@
 		3F005F3D296A66F000F2E53B /* TXCoreModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXCoreModules.swift; sourceTree = "<group>"; };
 		3F005F44296BA9D600F2E53B /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		3F005F46296BB43200F2E53B /* UINavigationBarX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarX.swift; sourceTree = "<group>"; };
-		3F005F48296BB89100F2E53B /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		3F005F48296BB89100F2E53B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		3F005F4D296C190D00F2E53B /* TXMediaCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXMediaCatch.swift; sourceTree = "<group>"; };
 		3F0A5A48295BE94B000427FD /* TXImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXImagePickerController.swift; sourceTree = "<group>"; };
 		3F0CE25D295CB3C600E7BAFE /* TXUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXUser.swift; sourceTree = "<group>"; };
 		3F0F824329659766003612E4 /* TXActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -327,7 +329,8 @@
 				3FD1F9122963D2CA00B6387F /* Assets */,
 				3FCC7A8F29583EDB001E353F /* Custom Classes */,
 				3FCC7A7429554FA4001E353F /* Extensions */,
-				3F005F48296BB89100F2E53B /* helper.swift */,
+				3F005F48296BB89100F2E53B /* Helper.swift */,
+				3F005F4D296C190D00F2E53B /* TXMediaCatch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -696,7 +699,7 @@
 				3F0CE25E295CB3C600E7BAFE /* TXUser.swift in Sources */,
 				3F0F824429659766003612E4 /* TXActivityIndicatorView.swift in Sources */,
 				3FCC7A822955C09F001E353F /* LoginController.swift in Sources */,
-				3F005F49296BB89100F2E53B /* helper.swift in Sources */,
+				3F005F49296BB89100F2E53B /* Helper.swift in Sources */,
 				3FCC7A7129554AF5001E353F /* NotificationsController.swift in Sources */,
 				3FCC7A9629583FE8001E353F /* TXViewController.swift in Sources */,
 				3FCC7A892955D065001E353F /* UIViewSizeX.swift in Sources */,
@@ -736,6 +739,7 @@
 				3FDF5C3F2965B8020061D173 /* TXThemeColor.swift in Sources */,
 				3FD1F9142963D2F000B6387F /* ImageAssets.swift in Sources */,
 				3F005F3A296A659300F2E53B /* BooterProtocol.swift in Sources */,
+				3F005F4E296C190D00F2E53B /* TXMediaCatch.swift in Sources */,
 				3F005F342965D7CD00F2E53B /* TXAuthProtocol.swift in Sources */,
 				3FCC7A532954CD13001E353F /* SceneDelegate.swift in Sources */,
 				3F9C03F5295D8B110031E928 /* TXAssetsRepository.swift in Sources */,

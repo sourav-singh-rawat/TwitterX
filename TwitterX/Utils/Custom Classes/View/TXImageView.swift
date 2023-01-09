@@ -31,34 +31,41 @@ class TXImageView: UIImageView {
         
         var image: UIImage?
         
-        let assetRepository = TXAssetsRepository()
-        
-        let dispatchGroup = DispatchGroup()
-        
-        dispatchGroup.enter()
-        
-        DispatchQueue.global().async {
-            assetRepository.dowloadDataFromImageUrl(
-                with: TXDownloadDataFromImageUrlRequest(urlString: imageUrl)
-            ) {
-                result in
-                
-                switch result {
-                case .success(let response):
-                    let imageData = response.imageData
+        let catchedImageData = TXMediaCatch.shared.catchedImages[imageUrl]
+        if let catchedImageData = catchedImageData {
+            image = UIImage(data: catchedImageData)
+        }else {
+            let assetRepository = TXAssetsRepository()
+            
+            let dispatchGroup = DispatchGroup()
+            
+            dispatchGroup.enter()
+            
+            DispatchQueue.global().async {
+                assetRepository.dowloadDataFromImageUrl(
+                    with: TXDownloadDataFromImageUrlRequest(urlString: imageUrl)
+                ) {
+                    result in
                     
-                    image = UIImage(data: imageData)
-                case .failure(let response):
-                    image = nil
-                    //TODO: show toast
-                    print(response.localizedDescription)
+                    switch result {
+                    case .success(let response):
+                        let imageData = response.imageData
+                        
+                        TXMediaCatch.shared.catchedImages[imageUrl] = imageData
+                        
+                        image = UIImage(data: imageData)
+                    case .failure(let response):
+                        image = nil
+                        //TODO: show toast
+                        print(response.localizedDescription)
+                    }
+                    
+                    dispatchGroup.leave()
                 }
-                
-                dispatchGroup.leave()
             }
+            
+            dispatchGroup.wait()
         }
-        
-        dispatchGroup.wait()
         
         super.init(image: image)
         
