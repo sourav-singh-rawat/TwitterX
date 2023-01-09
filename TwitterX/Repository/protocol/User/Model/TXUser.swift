@@ -16,6 +16,12 @@ class TXUser: Decodable {
     let fullname: String
     let username: String
     
+    var profileImageUrl_ToUrl: URL {
+        get {
+            return URL(string: self.profileImageUrl)!
+        }
+    }
+    
     init(uid: String, profileImage: UIImage? = nil, profileImageUrl: String, email: String, password: String? = nil, fullname: String, username: String) {
         self.uid = uid
         self.profileImage = profileImage

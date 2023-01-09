@@ -25,3 +25,14 @@ struct TXUploadImageSuccess: TXAssetsSuccessProtocol {
     var message: String?
     let imageUrl: String
 }
+
+struct TXDownloadDataFromImageUrlFailure: TXAssetsFailureProtocol {
+    var statusCode: Int?
+    
+    var localizedDescription: String
+}
+
+struct TXDownloadDataFromImageUrlSuccess: TXAssetsSuccessProtocol {
+    var message: String?
+    let imageData: Data
+}

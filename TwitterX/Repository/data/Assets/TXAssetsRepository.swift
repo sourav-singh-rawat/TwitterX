@@ -11,7 +11,6 @@ import FirebaseStorage
 struct TXAssetsRepository: TXAssetsRepositoryProtocol {
     private let storageRef = Storage.storage().reference()
     
-    var uploadImageCompletion: UploadImageCompletion?
     func uploadImage(with request: TXUploadImageRequest,completion: @escaping UploadImageCompletion) {
         let payload = request.toPayload()
         
@@ -53,4 +52,41 @@ struct TXAssetsRepository: TXAssetsRepositoryProtocol {
         }
     }
     
+    func dowloadDataFromImageUrl(with request: TXDownloadDataFromImageUrlRequest,
+                                 completion: @escaping DownloadDataFromImageUrlCompletion) {
+        let session = URLSession(configuration: .default)
+        
+        let downloadImageTask = session.dataTask(with: request.url) { (data, response, error) in
+            if let e = error {
+                completion(
+                    .failure(
+                        TXDownloadDataFromImageUrlFailure(
+                            localizedDescription: e.localizedDescription
+                        )
+                    )
+                )
+            } else {
+                if let imageData = data {
+                    completion(
+                        .success(
+                            TXDownloadDataFromImageUrlSuccess(
+                                imageData: imageData
+                            )
+                        )
+                    )
+                } else {
+                    completion(
+                        .failure(
+                            TXDownloadDataFromImageUrlFailure(
+                                localizedDescription: "Couldn't get image: Image is nil"
+                            )
+                        )
+                    )
+                }
+                
+            }
+        }
+        
+        downloadImageTask.resume()
+    }
 }

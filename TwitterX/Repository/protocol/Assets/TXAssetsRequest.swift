@@ -29,3 +29,17 @@ struct TXUploadImageRequest: TXRepositoryRequest {
         ]
     }
 }
+
+struct TXDownloadDataFromImageUrlRequest: TXRepositoryRequest {
+    let urlString: String
+    
+    var url: URL {
+        get {
+            return URL(string: urlString)!
+        }
+    }
+    
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
+}

@@ -17,6 +17,19 @@ class FeedController: TXViewController {
         height: 44
     )
     
+    let profileImageView: TXImageView = {
+        let imgView = TXImageView(
+            imageUrl: TXAuth.shared.currentUser!.profileImageUrl,
+            width: 32,
+            height: 32
+        )
+        imgView.layer.cornerRadius = 32/2
+        imgView.backgroundColor = .twitterBlue
+        imgView.layer.masksToBounds = true
+        
+        return imgView
+    }()
+    
     
     //MARK: - Lifecycle
     
@@ -32,6 +45,8 @@ class FeedController: TXViewController {
         view.backgroundColor = TXTheme.shared.color.background
         
         navigationItem.titleView = logoImageView
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
     
 }

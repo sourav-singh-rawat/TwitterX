@@ -64,6 +64,7 @@ fileprivate class TXTextInputRow: TXStackView {
     
     let prefixImageView: TXImageView = {
         let imgView = TXImageView(
+            image:nil,
             width: 24,
             height: 24
         )
