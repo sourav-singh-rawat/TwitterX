@@ -40,19 +40,7 @@ class UploadTweetController: UIViewController {
         return btn
     }()
     
-    private let profileImageView: TXImageView = {
-        let imgView = TXImageView(
-            imageUrl: TXAuth.shared.currentUser!.profileImageUrl,
-            width: 48,
-            height: 48
-        )
-        imgView.layer.cornerRadius = 48/2
-        imgView.layer.masksToBounds = true
-        imgView.clipsToBounds = true
-        imgView.backgroundColor = TXTheme.shared.color.primary
-        
-        return imgView
-    }()
+    private let tweetTextFieldView = TweetTextField()
     
     //MARK: - Lifecycle
     
@@ -92,12 +80,13 @@ class UploadTweetController: UIViewController {
     }
     
     private func configureMainView() {
-        view.addSubview(profileImageView)
+        view.addSubview(tweetTextFieldView)
         
-        profileImageView.position(
+        tweetTextFieldView.position(
             in: self.view,
             withInsets: TXEdgeInsets.only(
                 left: 16,
+                right: 16,
                 top: 16
             ),
             withSafeAreaProtected: true
