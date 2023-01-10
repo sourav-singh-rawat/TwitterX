@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UploadTweetController: UIViewController {
+class UploadTweetController: TXViewController {
     
     //MARK: - Properties
     
@@ -57,7 +57,36 @@ class UploadTweetController: UIViewController {
     }
     
     private func onTweetPressed() {
-        print("Tweeeeee")
+        func handleEmptyTweet() {
+            showToast(message: "Write what's happening?")
+        }
+        
+        guard let newTweet = tweetTextFieldView.textView.text else {
+            handleEmptyTweet()
+            return
+        }
+        
+        if newTweet.isEmpty {
+            handleEmptyTweet()
+            return
+        }
+        
+        let tweetRepository = TXTweetRepository()
+        
+        let request = TXUploadTweetRequest(tweet: newTweet)
+        
+        tweetRepository.uploadTweet(
+            with: request
+        ) { [weak self]
+            result in
+                
+            switch result {
+            case .success(_):
+                self?.onCanclePressed()
+            case .failure(let response):
+                self?.showToast(message: response.localizedDescription)
+            }
+        }
     }
     
     //MARK: - Helper

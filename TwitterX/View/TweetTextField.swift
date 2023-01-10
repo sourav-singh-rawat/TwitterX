@@ -21,7 +21,7 @@ class TweetTextField: TXStackView {
         return imgView
     }()
     
-    private let textView: TXTextView = {
+    let textView: TXTextView = {
         let textView = TXTextView()
         textView.placeholderText = "What's happening?"
         
