@@ -8,6 +8,8 @@
 import UIKit
 
 struct TXLightThemeColor: TXThemeColorProtocol {
+    
+    
     var primary: UIColor {
         get {
             .twitterBlue
@@ -29,6 +31,24 @@ struct TXLightThemeColor: TXThemeColorProtocol {
     var onBackgroud: UIColor {
         get {
             .black
+        }
+    }
+    
+    var toast: UIColor {
+        get {
+            .black.withAlphaComponent(0.6)
+        }
+    }
+    
+    var onToast: UIColor {
+        get {
+            .white
+        }
+    }
+    
+    var navBarSeprater: UIColor {
+        get {
+            .gray.withAlphaComponent(0.4)
         }
     }
 }
@@ -55,6 +75,24 @@ struct TXDarkThemeColor: TXThemeColorProtocol {
     var onBackgroud: UIColor {
         get {
             .white
+        }
+    }
+    
+    var toast: UIColor {
+        get {
+            .white.withAlphaComponent(0.6)
+        }
+    }
+    
+    var onToast: UIColor {
+        get {
+            .black
+        }
+    }
+    
+    var navBarSeprater: UIColor {
+        get {
+            .white.withAlphaComponent(0.4)
         }
     }
 }
