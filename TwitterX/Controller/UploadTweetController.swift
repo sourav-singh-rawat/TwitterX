@@ -33,6 +33,7 @@ class UploadTweetController: TXViewController {
         tweetBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         tweetBtn.backgroundColor = TXTheme.shared.color.primary
         tweetBtn.setTitleColor(TXTheme.shared.color.onPrimary, for: .normal)
+        tweetBtn.activityIndicator.color = TXTheme.shared.color.onPrimary
         
         
         let btn = UIBarButtonItem(customView: tweetBtn)
@@ -56,7 +57,7 @@ class UploadTweetController: TXViewController {
         dismiss(animated: true)
     }
     
-    private func onTweetPressed() {
+    private func onTweetPressed(_ sender: TXActionButton) {
         func handleEmptyTweet() {
             showToast(message: "Write what's happening?")
         }
@@ -70,6 +71,8 @@ class UploadTweetController: TXViewController {
             handleEmptyTweet()
             return
         }
+        
+        sender.isLoading = true
         
         let tweetRepository = TXTweetRepository()
         
@@ -86,6 +89,8 @@ class UploadTweetController: TXViewController {
             case .failure(let response):
                 self?.showToast(message: response.localizedDescription)
             }
+            
+            sender.isLoading = false
         }
     }
     

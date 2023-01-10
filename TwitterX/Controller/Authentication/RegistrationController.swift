@@ -17,7 +17,6 @@ class RegistrationController: TXViewController {
     private var password: String?
     private var fullname: String?
     private var username: String?
-    private var signupButtonRef: TXActionButton?
     
     private var media: TXMedia?
     
@@ -117,8 +116,6 @@ class RegistrationController: TXViewController {
         stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(signupButton)
         
-        self.signupButtonRef = signupButton
-        
         return stackView
     }()
     
@@ -191,12 +188,12 @@ class RegistrationController: TXViewController {
         return true
     }
     
-    private func onSignupPressed() {
+    private func onSignupPressed(_ sender: TXActionButton) {
         let isFormVerified = verifyForm()
         
         if isFormVerified {
             
-            signupButtonRef?.isLoading = true
+            sender.isLoading = true
             
             let request = TXCreateUserRequest(
                 user: TXUser(
@@ -219,7 +216,7 @@ class RegistrationController: TXViewController {
                     break
                 }
                 
-                self?.signupButtonRef?.isLoading = false
+                sender.isLoading = false
             }
         }
     }

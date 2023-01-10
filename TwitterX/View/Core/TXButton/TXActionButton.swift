@@ -7,20 +7,27 @@
 
 import UIKit
 
+typealias OnPressedTXActionButton = (_ sender: TXActionButton) -> Void
+
 class TXActionButton: TXButton {
     
-    private let activityIndicator = TXActivityIndicatorView()
+    let activityIndicator = TXActivityIndicatorView()
     private let title: String?
+    
+    private let onPressedActionCallback: OnPressedTXActionButton
     
     required init(
         title: String,
-        onPressed: @escaping OnPressedTXButton,
+        onPressed: @escaping OnPressedTXActionButton,
         height: CGFloat = 50
     ){
         
         self.title = title
         
-        super.init(onPressed: onPressed)
+        self.onPressedActionCallback = onPressed
+        
+        func defaultOnPress() {}
+        super.init(onPressed: defaultOnPress)
         
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -28,10 +35,14 @@ class TXActionButton: TXButton {
         backgroundColor = TXTheme.shared.color.onPrimary
         layer.cornerRadius = 5
         
+        addTarget(self, action: #selector(onPressedAction), for: .touchUpInside)
+        
         activityIndicator.hidesWhenStopped = true
         
         self.height(height)
     }
+    
+    
     
     var isLoading: Bool {
         get {
@@ -62,6 +73,10 @@ class TXActionButton: TXButton {
         activityIndicator.removeFromSuperview()
         
         setTitle(self.title, for: .normal)
+    }
+    
+    @objc private func onPressedAction() {
+        onPressedActionCallback(self)
     }
     
     required init?(coder: NSCoder) {

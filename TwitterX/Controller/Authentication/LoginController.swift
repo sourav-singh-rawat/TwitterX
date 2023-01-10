@@ -13,7 +13,6 @@ class LoginController: TXViewController {
     
     private var email: String?
     private var password: String?
-    private var loginButtonRef: TXActionButton?
     
     let userRepository = TXUserRepository()
     
@@ -75,7 +74,6 @@ class LoginController: TXViewController {
         stackView.addArrangedSubview(emailContainerView)
         stackView.addArrangedSubview(passwordContainerView)
         stackView.addArrangedSubview(loginButton)
-        self.loginButtonRef = loginButton
         
         return stackView
     }()
@@ -136,11 +134,11 @@ class LoginController: TXViewController {
         return true
     }
     
-    private func onLoginPressed() {
+    private func onLoginPressed(_ sender: TXActionButton) {
         let isFormVerified = verifyForm()
         
         if isFormVerified {
-            self.loginButtonRef?.isLoading = true
+            sender.isLoading = true
             
             userRepository.loginUser(
                 with: TXLoginUserRequest(
@@ -155,7 +153,7 @@ class LoginController: TXViewController {
                         break
                     }
                     
-                    self?.loginButtonRef?.isLoading = false
+                    sender.isLoading = false
                 }
         }
     }
