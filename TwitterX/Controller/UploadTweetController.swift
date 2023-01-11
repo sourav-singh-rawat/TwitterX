@@ -59,7 +59,7 @@ class UploadTweetController: TXViewController {
     
     private func onTweetPressed(_ sender: TXActionButton) {
         func handleEmptyTweet() {
-            showToast(message: "Write what's happening?")
+            view.showToast(message: "Write what's happening?")
         }
         
         guard let newTweet = tweetTextFieldView.textView.text else {
@@ -87,7 +87,7 @@ class UploadTweetController: TXViewController {
             case .success(_):
                 self?.onCanclePressed()
             case .failure(let response):
-                self?.showToast(message: response.localizedDescription)
+                self?.view.showToast(message: response.localizedDescription)
             }
             
             sender.isLoading = false

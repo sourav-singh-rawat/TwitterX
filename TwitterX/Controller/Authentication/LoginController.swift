@@ -198,7 +198,7 @@ class LoginController: TXViewController {
     }
     
     private func _showToast(message: String) {
-        showToast(message: message,withBottomInset: 32)
+        view.showToast(message: message,withBottomInset: 32)
     }
 }
 

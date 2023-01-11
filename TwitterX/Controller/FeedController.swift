@@ -52,7 +52,7 @@ class FeedController: TXViewController {
                 }
                 break
             case .failure(let response):
-                self?.showToast(message: response.localizedDescription)
+                self?.view.showToast(message: response.localizedDescription)
                 break
             }
         }
