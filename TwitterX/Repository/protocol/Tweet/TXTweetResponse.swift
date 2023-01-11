@@ -24,3 +24,15 @@ struct TXUploadTweetFailure: TXTweetFailureProtocol {
 struct TXUploadTweetSuccess: TXTweetSuccessProtocol {
     var message: String?
 }
+
+struct TXGetAllTweetsFailure: TXTweetFailureProtocol {
+    var statusCode: Int?
+    
+    var localizedDescription: String
+}
+
+struct TXGetAllTweetsSuccess: TXTweetSuccessProtocol {
+    var message: String?
+    
+    let tweets: [TXTweet]
+}

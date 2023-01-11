@@ -153,7 +153,7 @@ class TXUserRepository: TXUserRepositoryProtocol {
             .getDocument { document, error in
                 if let document = document, document.exists, error == nil {
                     
-                    guard let firestoreObj = document.data() else {
+                    guard let firestoreObj: [String:Any] = document.data() else {
                         completion(.failure(
                             TXGetUserDetailsFailure(
                                 localizedDescription: "Data not stored for this user"
@@ -162,15 +162,17 @@ class TXUserRepository: TXUserRepositoryProtocol {
                         return
                     }
                     
-                    do {
-                        let data = try JSONSerialization.data(withJSONObject: firestoreObj, options: .prettyPrinted)
-                       
-                        let decoder = JSONDecoder()
-                        let user = try decoder.decode(TXUser.self, from: data)
+                    
+                    if let user = firestoreObj.toData()?.decode(to: TXUser.self) {
                         
                         completion(.success(TXGetUserDetailsSuccess(user: user)))
-                    } catch {
-                        assertionFailure("Failed to transform data")
+                        
+                    } else {
+                        completion(.failure(
+                            TXGetUserDetailsFailure(
+                                localizedDescription: "Not able to decode server data"
+                            )
+                        ))
                     }
                 }else {
                     completion(.failure(

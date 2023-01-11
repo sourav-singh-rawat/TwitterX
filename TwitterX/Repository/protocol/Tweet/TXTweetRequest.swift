@@ -20,3 +20,9 @@ struct TXUploadTweetRequest: TXRepositoryRequest {
         ]
     }
 }
+
+struct TXGetAllTweetsRequest: TXRepositoryRequest {
+    func toPayload() -> [String : Any] {
+        return [:]
+    }
+}

@@ -11,6 +11,8 @@ class FeedController: TXViewController {
     
     //MARK: - Properties
     
+    let tweetRepository = TXTweetRepository()
+    
     let logoImageView = TXImageView(
         image: UIImage(named: TXImageAsset.twitterLogoBlue),
         width: 44,
@@ -32,6 +34,29 @@ class FeedController: TXViewController {
     
     
     //MARK: - Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        tweetRepository.getAllTweets(
+            with: TXGetAllTweetsRequest()
+        ) { [weak self]
+            result in
+            
+            switch result {
+            case .success(let response):
+                let tweets = response.tweets
+                
+                for tweet in tweets {
+                    print(tweet.tweet)
+                }
+                break
+            case .failure(let response):
+                self?.showToast(message: response.localizedDescription)
+                break
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
