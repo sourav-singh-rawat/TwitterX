@@ -14,6 +14,7 @@ protocol TXThemeColorProtocol {
 //    var onSecoundary: UIColor { get }
     var background: UIColor { get }
     var onBackgroud: UIColor { get }
+    var onBackgroundVarient: UIColor { get }
     var toast: UIColor { get }
     var onToast: UIColor { get }
     var navBarSeprater: UIColor { get }

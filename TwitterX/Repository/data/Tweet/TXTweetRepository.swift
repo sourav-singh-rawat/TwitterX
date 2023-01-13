@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 struct TXTweetRepository: TXTweetRepositoryProtocol {
-    func getAllTweets(with request: TXGetAllTweetsRequest, completion: @escaping GetAllTweetsCompletion) {
+    func fetchTweets(with request: TXFetchTweetsRequest, completion: @escaping FetchTweetsCompletion) {
         Firestore.firestore().collection("Tweets")
             .getDocuments {
                 snapshot, error in
@@ -17,14 +17,14 @@ struct TXTweetRepository: TXTweetRepositoryProtocol {
                 if let error = error {
                     completion(
                         .failure(
-                            TXGetAllTweetsFailure(localizedDescription: error.localizedDescription)
+                            TXFetchTweetsFailure(localizedDescription: error.localizedDescription)
                         )
                     )
                 } else if let snapshot = snapshot {
                     if snapshot.documents.isEmpty {
                         completion(
                             .failure(
-                                TXGetAllTweetsFailure(localizedDescription: "No tweets found")
+                                TXFetchTweetsFailure(localizedDescription: "No tweets found")
                             )
                         )
                         return
@@ -33,14 +33,34 @@ struct TXTweetRepository: TXTweetRepositoryProtocol {
                     var tweetList = [TXTweet]()
                     
                     for document in snapshot.documents {
-                        let firebaseObj:[String:Any] = document.data()
+                        var firebaseObj:[String:Any] = document.data()
                         
-                        if let tweet = firebaseObj.toData()?.decode(to: TXTweet.self) {
-                            tweetList.append(tweet)
+                        let uuid = firebaseObj["uuid"] as! String
+                        
+                        let userRepository = TXUserRepository()
+                        userRepository.getUserDetails(
+                            with: TXGetUserDetailsRequest(uuid: uuid)
+                        ) {
+                            result in
+                            
+                            switch result{
+                            case .success(let response):
+                                let user = response.user
+                                
+                                firebaseObj["user"] = TXHelper.encode(value: user)?.toJSON()
+                                
+                                if let tweet = firebaseObj.toData()?.decode(to: TXTweet.self) {
+                                    tweetList.append(tweet)
+                                }
+                                
+                                completion(.success(TXFetchTweetsSuccess(tweets: tweetList)))
+                                break
+                            case .failure(let response):
+                                print(response.localizedDescription)
+                                break
+                            }
                         }
                     }
-                    
-                    completion(.success(TXGetAllTweetsSuccess(tweets: tweetList)))
                 }
         }
     }

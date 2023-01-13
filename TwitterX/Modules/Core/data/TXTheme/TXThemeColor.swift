@@ -34,6 +34,12 @@ struct TXLightThemeColor: TXThemeColorProtocol {
         }
     }
     
+    var onBackgroundVarient: UIColor {
+        get {
+            .lightGray
+        }
+    }
+    
     var toast: UIColor {
         get {
             .black.withAlphaComponent(0.6)
@@ -75,6 +81,12 @@ struct TXDarkThemeColor: TXThemeColorProtocol {
     var onBackgroud: UIColor {
         get {
             .white
+        }
+    }
+    
+    var onBackgroundVarient: UIColor {
+        get {
+            .lightGray
         }
     }
     

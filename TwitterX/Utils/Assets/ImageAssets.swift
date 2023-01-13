@@ -14,4 +14,8 @@ struct TXImageAsset {
     static let mail = "mail"
     static let lock_outline = "ic_lock_outline_white_2x"
     static let person_outline = "ic_person_outline_white_2x"
+    static let comment = "comment"
+    static let retweet = "retweet"
+    static let like = "like"
+    static let share = "share"
 }

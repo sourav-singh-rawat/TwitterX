@@ -24,7 +24,7 @@ struct TXAddUserDetailsRequest: TXRepositoryRequest {
             "profileImageUrl":user.profileImageUrl,
             "email":user.email,
             "fullname":user.fullname,
-            "username":user.username
+            "username":user.username.lowercased()
         ]
     }
 }

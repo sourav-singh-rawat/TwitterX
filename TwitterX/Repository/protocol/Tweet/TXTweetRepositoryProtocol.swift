@@ -8,7 +8,7 @@
 import Foundation
 
 typealias UploadTweetCompletion = (Result<TXUploadTweetSuccess,TXUploadTweetFailure>) -> Void
-typealias GetAllTweetsCompletion = (Result<TXGetAllTweetsSuccess,TXGetAllTweetsFailure>) -> Void
+typealias FetchTweetsCompletion = (Result<TXFetchTweetsSuccess,TXFetchTweetsFailure>) -> Void
 
 protocol TXTweetRepositoryProtocol {
     func uploadTweet(
@@ -16,8 +16,8 @@ protocol TXTweetRepositoryProtocol {
         completion: @escaping UploadTweetCompletion
     )
     
-    func getAllTweets(
-        with request: TXGetAllTweetsRequest,
-        completion: @escaping GetAllTweetsCompletion
+    func fetchTweets(
+        with request: TXFetchTweetsRequest,
+        completion: @escaping FetchTweetsCompletion
     )
 }

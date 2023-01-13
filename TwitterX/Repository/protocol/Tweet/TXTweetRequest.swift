@@ -21,7 +21,7 @@ struct TXUploadTweetRequest: TXRepositoryRequest {
     }
 }
 
-struct TXGetAllTweetsRequest: TXRepositoryRequest {
+struct TXFetchTweetsRequest: TXRepositoryRequest {
     func toPayload() -> [String : Any] {
         return [:]
     }

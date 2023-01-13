@@ -34,7 +34,6 @@ class TweetTextField: TXStackView {
         addArrangedSubview(profileImageView)
         addArrangedSubview(textView)
         
-        alignment = .leading
         axis = .horizontal
         spacing = 16
     }

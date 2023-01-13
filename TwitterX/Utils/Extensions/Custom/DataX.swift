@@ -20,4 +20,14 @@ extension Data{
             return nil
         }
     }
+    
+    func toJSON() -> [String:Any]? {
+        do {
+            let data = try JSONSerialization.jsonObject(with: self) as? [String:Any]
+            
+            return data
+        } catch {
+            return nil
+        }
+    }
 }

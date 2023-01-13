@@ -9,9 +9,10 @@ import UIKit
 
 class TXStackView: UIStackView {
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         
         spacing = 8
+        alignment = .leading
     }
     
     required init(coder: NSCoder) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TXUser: Decodable {
+class TXUser: Codable {
     let uid: String
     var profileImage: UIImage?
     let profileImageUrl: String
@@ -40,6 +40,15 @@ class TXUser: Decodable {
         case username
     }
     
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.uid, forKey: .uid)
+        try container.encode(self.profileImageUrl, forKey: .profileImageUrl)
+        try container.encode(self.email, forKey: .email)
+        try container.encode(self.fullname, forKey: .fullname)
+        try container.encode(self.username, forKey: .username)
+    }
+    
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -49,4 +58,6 @@ class TXUser: Decodable {
         fullname = try values.decode(String.self, forKey: .fullname)
         username = try values.decode(String.self, forKey: .username)
     }
+    
+    
 }
