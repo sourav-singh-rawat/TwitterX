@@ -16,6 +16,8 @@ class FeedController: TXTableViewController {
     var tweets = [TXTweet]() {
         didSet {
             self.tableView.reloadData()
+            
+            feedView.activityIndicator.stopAnimating()
         }
     }
     

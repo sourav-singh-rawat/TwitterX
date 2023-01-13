@@ -9,6 +9,8 @@ import UIKit
 
 class FeedView: TXTableView {
     
+    let activityIndicator = TXActivityIndicatorView()
+    
     let logoImageView = TXImageView(
         image: UIImage(named: TXImageAsset.twitterLogoBlue),
         width: 44,
@@ -31,14 +33,22 @@ class FeedView: TXTableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        createSubviews()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func createSubviews() {
+    private func configureUI() {
+        addSubview(activityIndicator)
         
+        activityIndicator.alignment(
+            to: self,
+            alignment: TXAlignment.center,
+            withSafeAreaPortected: true
+        )
+        
+        activityIndicator.startAnimating()
     }
 }
