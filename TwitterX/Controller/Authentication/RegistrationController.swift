@@ -109,7 +109,7 @@ class RegistrationController: TXViewController {
         let stackView = TXStackView()
         stackView.axis = .vertical
         stackView.spacing = 20
-        
+        stackView.alignment = .fill
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(fullnameTextField)
