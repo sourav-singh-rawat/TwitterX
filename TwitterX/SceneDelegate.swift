@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = SplashScreenController()
+        window?.rootViewController = SplashScreenRouter.createModule()
         window?.makeKeyAndVisible()
         
         NotificationCenter.default
@@ -79,9 +79,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isAuthenticated = TXAuth.shared.isAuthenticated
         
         if (isAuthenticated){
-            window.rootViewController = MainTabController()
+            window.rootViewController = BottomTabRouter.createModule()
         }else {
-            window.rootViewController = TXNavigationController(rootViewController: LoginController())
+            window.rootViewController = TXNavigationController(
+                rootViewController: LoginRouter.createModule()
+            )
         }
         
         //animation

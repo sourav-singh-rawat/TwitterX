@@ -14,13 +14,15 @@ protocol TXTextFieldDelegate {
 class TXTextField: UITextField, UITextFieldDelegate {
     var controllerDelegate: TXTextFieldDelegate?
     
-    required init(withTag tag: Int,placeholder: String? = nil) {
+    required init(withTag tag: Int? = nil,placeholder: String? = nil) {
         super.init(frame: .zero)
         delegate = self
         
         textColor = TXTheme.shared.color.onPrimary
         
-        self.tag = tag
+        if let tag = tag {
+            self.tag = tag
+        }
         
         font = UIFont.systemFont(ofSize: 16)
         

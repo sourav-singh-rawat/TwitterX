@@ -21,7 +21,7 @@ protocol TXRepositoryRequest{
 
 //MARK: - Response Protocol
 
-protocol TXRepositoryFailureProtocol: TXError {
+protocol TXRepositoryFailureProtocol: Error {
     var statusCode: Int? { get set }
 }
 

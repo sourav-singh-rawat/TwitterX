@@ -8,30 +8,29 @@
 import UIKit
 
 class TXImageView: UIImageView {
-    init(
-        image: UIImage?,
-        width: CGFloat = 50,
-        height: CGFloat = 50
-    ) {
-        super.init(image: image)
+    private var width: CGFloat?,height: CGFloat?
+    
+    func setImage(image: UIImage,width: CGFloat = 50, height: CGFloat = 50) {
+        self.width = width
+        self.height = height
         
         self.image = image
         contentMode = .scaleAspectFit
+        clipsToBounds = true
         tintColor = TXTheme.shared.color.onPrimary
         
         self.height(height)
         self.width(width)
     }
     
-    init(
-        imageUrl: String,
-        width: CGFloat = 50,
-        height: CGFloat = 50
-    ) {
+    func setImage(imageUrl: String,width: CGFloat = 50, height: CGFloat = 50) {
+        self.width = width
+        self.height = height
         
         var image: UIImage?
         
         let catchedImageData = TXMediaCatch.shared.catchedImages[imageUrl]
+        
         if let catchedImageData = catchedImageData {
             image = UIImage(data: catchedImageData)
         }else {
@@ -67,16 +66,29 @@ class TXImageView: UIImageView {
             dispatchGroup.wait()
         }
         
-        super.init(image: image)
-        
+        backgroundColor = TXTheme.shared.color.primary
         self.image = image
         contentMode = .scaleAspectFit
+        clipsToBounds = true
         
         self.height(height)
         self.width(width)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func toRoundedImage() {
+        if let _width = width, let _height = height, _width == _height {
+            layer.cornerRadius = _width/2
+            layer.masksToBounds = true
+        }else {
+            fatalError("Not a square image")
+        }
+    }
+    
+    func withBorder(
+        borderColor color: UIColor = UIColor.white,
+        borderWidth width: CGFloat = 3
+    ){
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
     }
 }
