@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol LoginFormViewDelegate {
+    func stopLoadingLoginButton()
+}
+
 class LoginFormView: TXStackView {
+    var delegate: LoginFormViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        delegate = self
         
         configureUI()
     }
@@ -48,7 +56,7 @@ class LoginFormView: TXStackView {
         return view
     }()
     
-    lazy var loginButton: TXActionButton = {
+    private lazy var loginButton: TXActionButton = {
         let button = TXActionButton()
         button.setTitle("Login")
         button.addAction { [unowned self]
@@ -74,5 +82,11 @@ class LoginFormView: TXStackView {
         addArrangedSubview(emailContainerView)
         addArrangedSubview(passwordContainerView)
         addArrangedSubview(loginButton)
+    }
+}
+
+extension LoginFormView: LoginFormViewDelegate {
+    func stopLoadingLoginButton() {
+        loginButton.isLoading = false
     }
 }

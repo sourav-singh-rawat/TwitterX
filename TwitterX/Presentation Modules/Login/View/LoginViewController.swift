@@ -116,11 +116,11 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: PresenterToViewLoginProtocol{
     func loginSuccess() {
-        loginFormView.loginButton.isLoading = false
+        loginFormView.delegate?.stopLoadingLoginButton()
     }
     
     func showLoginError(message: String) {
         _showToast(message: message)
-        loginFormView.loginButton.isLoading = false
+        loginFormView.delegate?.stopLoadingLoginButton()
     }
 }
