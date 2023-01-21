@@ -60,19 +60,7 @@ class RegistrationViewController: UIViewController {
     private func configureUI(){
         view.backgroundColor = TXTheme.shared.color.primary
         
-        addChild(registrationFormViewController)
-        registrationFormViewController.view.frame = view.frame
-        view.addSubview(registrationFormViewController.view)
-        registrationFormViewController.didMove(toParent: self)
-        registrationFormViewController.view.position(
-            in: view,
-            withInsets: TXEdgeInsets.only(
-                left: 0,
-                right: 0,
-                top: 0
-            ),
-            withSafeAreaProtected: true
-        )
+        addChildControllerSubview(registrationFormViewController)
 
         view.addSubview(loginButton)
         loginButton.alignment(
@@ -89,8 +77,17 @@ class RegistrationViewController: UIViewController {
 }
 
 extension RegistrationViewController: PresenterToViewRegistrationProtocol {
-    func showRegisterUserError(message: String) {
-        _showToast(message: message)
+    func profileImagePicked(image: UIImage) {
+        registrationFormViewController.delegate?.setPickedProfileImage(image)
+    }
+    
+    func registerUserSuccess() {
+        registrationFormViewController.delegate?.stopLoadingSignupButton()
+    }
+    
+    func registerUserFailure(error: String) {
+        registrationFormViewController.delegate?.stopLoadingSignupButton()
+        _showToast(message: error)
     }
 }
 

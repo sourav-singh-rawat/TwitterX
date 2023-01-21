@@ -32,11 +32,7 @@ class BottomTabViewController: TXTabBarController {
         btn.backgroundColor = TXTheme.shared.color.primary
         btn.addAction { [unowned self]
             action in
-            
-            TXUserRepository().logoutUser(with: TXLogoutUserRequest()) { result in
-                //
-            }
-//            self.presenter?.createNewTweet()
+            self.presenter?.createNewTweet()
         }
     
         btn.toRoundedImage()

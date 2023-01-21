@@ -7,19 +7,28 @@
 
 import UIKit
 
+protocol RegistrationFormViewControllerDelegate {
+    func setPickedProfileImage(_ image: UIImage)
+    func stopLoadingSignupButton()
+}
+
 class RegistrationFormViewController: TXViewController {
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        delegate = self
         
         configureUI()
     }
     
     // MARK: - Properties
     var presenter: ViewToPresenterRegistrationProtocol?
+    
+    var delegate: RegistrationFormViewControllerDelegate?
+    
+    var profileImage: UIImage?
     
     private lazy var addPhotoFieldView: TXImageButton = {
         let btn = TXImageButton()
@@ -95,7 +104,7 @@ class RegistrationFormViewController: TXViewController {
             btn.isLoading = true
             
             self.presenter?.registerUser(
-                profileImage: addPhotoFieldView.currentImage,
+                profileImage: profileImage,
                 email: emailTextField.textField.text,
                 password: passwordTextField.textField.text,
                 fullname: fullnameTextField.textField.text,
@@ -138,18 +147,16 @@ class RegistrationFormViewController: TXViewController {
     }
 }
 
-extension RegistrationFormViewController: PresenterToViewRegistrationProtocol {
-    func profileImagePicked(image: UIImage) {
+extension RegistrationFormViewController: RegistrationFormViewControllerDelegate {
+    func setPickedProfileImage(_ image: UIImage) {
+        profileImage = image
+        
         addPhotoFieldView.setImage(image, for: .normal)
         addPhotoFieldView.toRoundedImage()
         addPhotoFieldView.withBorder()
     }
     
-    func registerUserSuccess() {
-        signupButton.isLoading = false
-    }
-    
-    func showRegisterUserError(message: String) {
+    func stopLoadingSignupButton() {
         signupButton.isLoading = false
     }
 }

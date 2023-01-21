@@ -12,15 +12,8 @@ import UIKit
 protocol PresenterToViewRegistrationProtocol {
     func profileImagePicked(image: UIImage)
     func registerUserSuccess()
-    func showRegisterUserError(message: String)
+    func registerUserFailure(error: String)
 }
-
-extension PresenterToViewRegistrationProtocol {
-    func profileImagePicked(image: UIImage) {}
-    func registerUserSuccess() {}
-    func showRegisterUserError(message: String) {}
-}
-
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterRegistrationProtocol {
@@ -53,7 +46,7 @@ protocol PresenterToInteractorRegistrationProtocol {
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterRegistrationProtocol {
     func registerUserSuccess()
-    func registerUserFailure(message: String)
+    func registerUserFailure(error: String)
 }
 
 

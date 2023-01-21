@@ -122,6 +122,7 @@
 		3FECB4F829779C4D009DB518 /* TXActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECB4EA29779C4D009DB518 /* TXActivityIndicatorView.swift */; };
 		3FECB4FA29779D3A009DB518 /* TXTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECB4F929779D3A009DB518 /* TXTabBarController.swift */; };
 		3FECB4FF2979116B009DB518 /* RegistrationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECB4FE2979116A009DB518 /* RegistrationFormViewController.swift */; };
+		3FECB501297BE864009DB518 /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECB500297BE864009DB518 /* UIViewControllerX.swift */; };
 		3FEE8F3B2958B30400317CF6 /* TXActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */; };
 		3FF85297295D5732002DBD55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF85296295D5732002DBD55 /* FirebaseAuth */; };
 		3FF85299295D5732002DBD55 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF85298295D5732002DBD55 /* FirebaseFirestore */; };
@@ -246,6 +247,7 @@
 		3FECB4EA29779C4D009DB518 /* TXActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3FECB4F929779D3A009DB518 /* TXTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXTabBarController.swift; sourceTree = "<group>"; };
 		3FECB4FE2979116A009DB518 /* RegistrationFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormViewController.swift; sourceTree = "<group>"; };
+		3FECB500297BE864009DB518 /* UIViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
 		3FEE8F3A2958B30400317CF6 /* TXActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -492,6 +494,7 @@
 				3FCC7A7B2955A692001E353F /* UIColorX.swift */,
 				3F005F312965D30500F2E53B /* NotificationCenterX.swift */,
 				3F005F46296BB43200F2E53B /* UINavigationBarX.swift */,
+				3FECB500297BE864009DB518 /* UIViewControllerX.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				3FD2E75B2976C0C700C68763 /* FeedProtocols.swift in Sources */,
 				3FD2E76C2976C0DE00C68763 /* NotificationsPresenter.swift in Sources */,
 				3FD2E7762976C0EB00C68763 /* ConversationsPresenter.swift in Sources */,
+				3FECB501297BE864009DB518 /* UIViewControllerX.swift in Sources */,
 				3FECB4EE29779C4D009DB518 /* TXViewController.swift in Sources */,
 				3F0F9E0F295ABED700DDE7D9 /* TXMedia.swift in Sources */,
 				3FC5A0FF295CAAC800BE5283 /* TXUserRepository.swift in Sources */,

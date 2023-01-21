@@ -28,7 +28,7 @@ class RegistrationInteractor: PresenterToInteractorRegistrationProtocol {
                 
                 break
             case .failure(let response):
-                self.presenter?.registerUserFailure(message: response.localizedDescription)
+                self.presenter?.registerUserFailure(error: response.localizedDescription)
                 
                 break
             }

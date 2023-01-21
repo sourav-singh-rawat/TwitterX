@@ -30,23 +30,23 @@ class RegistrationPresenter: ViewToPresenterRegistrationProtocol {
     
     func registerUser(profileImage: UIImage?,email: String?, password: String?, fullname: String?, username: String?) {
         if profileImage == nil {
-            view?.showRegisterUserError(message:"Select Profile image")
+            view?.registerUserFailure(error:"Select Profile image")
             return
         }
         if (email ?? "").isEmpty {
-            view?.showRegisterUserError(message:"Enter email")
+            view?.registerUserFailure(error:"Enter email")
             return
         }
         if (password ?? "").isEmpty {
-            view?.showRegisterUserError(message:"Enter password")
+            view?.registerUserFailure(error:"Enter password")
             return
         }
         if (fullname ?? "").isEmpty {
-            view?.showRegisterUserError(message:"Enter fullname")
+            view?.registerUserFailure(error:"Enter fullname")
             return
         }
         if (username ?? "").isEmpty {
-            view?.showRegisterUserError(message:"Enter username")
+            view?.registerUserFailure(error:"Enter username")
             return
         }
         
@@ -69,8 +69,8 @@ extension RegistrationPresenter: InteractorToPresenterRegistrationProtocol {
         view?.registerUserSuccess()
     }
     
-    func registerUserFailure(message: String) {
-        view?.showRegisterUserError(message: message)
+    func registerUserFailure(error: String) {
+        view?.registerUserFailure(error: error)
     }
 }
 
